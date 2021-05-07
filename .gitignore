@@ -6,7 +6,6 @@
 Database files
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-db.sqlite3
 *.pyc
 __pycache__/
 *.py[cod]
