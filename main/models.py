@@ -12,7 +12,7 @@ class Oxygen(models.Model):
    contact_number = models.IntegerField()
    contact_person = models.CharField(max_length =100)
    website = models.URLField(max_length = 200)
-   status = models.CharField(max_length = 50)
+   status = models.CharField(max_length = 50,default="NA")
    last_verified=  models.DateField(default=False)
    address = models.CharField(max_length = 70)
    
