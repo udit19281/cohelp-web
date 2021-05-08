@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'cohelp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cohelpdb',
+        'NAME': 'cohelp_db',
         'USER':'root',
-        'PASSWORD':'root123',
-        'HOST':'127.0.0.1',
+        'PASSWORD':'opine',
+        'HOST':'localhost',
         'PORT':3306
     }
 }
