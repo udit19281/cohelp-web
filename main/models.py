@@ -34,9 +34,11 @@ class Ambulance(models.Model):
 
    name = models.CharField(max_length = 50)
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100)
-   address = models.CharField(max_length = 70)
-   pincode = models.IntegerField()
+   contact_person = models.CharField(max_length =100,default="NA")
+   address = models.CharField(max_length = 70,default="NA")
+   pincode = models.IntegerField(default=000000)
+   status=models.CharField(max_length = 100,default="NA")
+   link=models.URLField(max_length = 200,default="http://")
    verified = models.BooleanField(default=False)
    
    class Meta:
@@ -46,7 +48,7 @@ class BloodPlasma(models.Model):
 
    name = models.CharField(max_length = 50)
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100)
+   contact_person = models.CharField(max_length =100,default="NA")
    blood_group = models.CharField(max_length = 4)
    address = models.CharField(max_length = 70)
    medical_conditions = models.CharField(max_length = 70)
@@ -60,7 +62,7 @@ class Medicine(models.Model):
 
    name = models.CharField(max_length = 50)
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100)
+   contact_person = models.CharField(max_length =100,default="NA")
    quantity = models.IntegerField()
    expiry_date=  models.DateField()
    verified = models.BooleanField(default=False)
@@ -83,7 +85,7 @@ class Patient(models.Model):
    name = models.CharField(max_length = 50)
    age = models.IntegerField()
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100)
+   contact_person = models.CharField(max_length =100,default="NA")
    hospital_admission_status = models.BooleanField()
    hospital_name = models.CharField(max_length = 50)
    doctor_name = models.CharField(max_length = 50)
