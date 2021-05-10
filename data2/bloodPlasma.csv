@@ -1,42 +1,42 @@
-tablescraper-selected-row 3,tablescraper-selected-row 4,tablescraper-selected-row 5,tablescraper-selected-row 6,tablescraper-selected-row 7,tablescraper-selected-row 8,tablescraper-selected-row 9,total-upvote,total-downvote,tablescraper-selected-row 10
-noida police plasma,8851066433,NA,NA,NA,plasma,"08:15, 06/5",0,1,
-india plasma helpline,8602333666,NA,NA,NA,plasma,"07:00, 06/5",0,2,
-covid centre plasma,9968614520,NA,NA,NA,plasma,"08:36, 06/5",0,1,
-Ashok Kumar,9540020011,NA,NA,NA,B+ve recovered on May 1st,"16:30, 04/5",4,1,
-Geetanjali,9625000788,NA,NA,NA,All available except AB,"13:54, 05/5",1,0,
-Ghaziabad blood bank,01204777010,NA,NA,NA,"Blood for non-covid patients (O+, O-, B+)","20:38, 04/5",2,2,
-Surya,6230002501,NA,NA,NA,Ab+ available,"22:00, 03/5",4,0,
-Arshi Feroz,9667161212,NA,NA,NA,Blood Group A+,"20:00, 03/5",3,3,
-divine charitable blood bank,7838087638,NA,NA,NA,plasma,"22:00, 03/5",0,3,
-delhi gov blood bank,01125730773,NA,NA,NA,plasma,"21:45, 03/5",0,1,
-rotary noida blood bank,8447750619,NA,NA,NA,plasma,"13:01, 04/5",0,2,
-unknown,9810063621,NA,NA,NA,plasma,"13:05, 04/5",3,7,
-help group ngo,9414505153,NA,NA,NA,plasma,"15:30, 04/5",0,2,
-Sewa Bharti Corona Helpline,8010066066,Pan India,NA,NA,You can take a donor of any blood group who has recovered from covid along with his negative and positive report and get the plasma that you require.,"14:00, 05/5",7,3,
-ILBS Hospital,8448884344,Vasant Kunj,NA,,You can take a donor of any blood group who has recovered from covid along with his negative and positive report and get the plasma that you require.,"14:03, 05/5",21,6,https://www.ilbs.in/plasma/
-Raman Jit Singh/ Langda am Productions,9582586158,Delhi & Noida,NA,NA,If You can get a donor of any blood group who has recovered from Covid within 6 months ie. anytime after October he can help to get the plasma that you require.,"14:05, 05/5",3,6,
-Delhi Plasma,8448884344,Delhi,NA,NA,Send an email to covid.aid.resources21@gmail.com with the subject line - NameOfPatient_BloodGroupRequired_City with the exact details of your plasma requirement in the body. The support team will get back to you as soon as possible.,"14:08, 05/5",1,2,
-Dhoondh,,NA,NA,NA,-,NA,0,1,https://www.dhoondh.com/
-Plasma Donor,,NA,NA,NA,-,NA,2,0,https://plasmadonor.in/
-Need Plasma,,NA,NA,NA,-,NA,1,1,https://needplasma.in/
-Plasma Line,,NA,NA,NA,-,NA,0,3,https://plasmaline.in/
-Delhi Fights Corona,,NA,NA,NA,-,NA,1,4,https://delhifightscorona.in/requestplasma/
-Rotary Blood Bank Gurgaon,,NA,NA,NA,-,NA,1,0,http://www.rotarybloodbankgurgaon.in/rotary-plasma-bank.html
-Covidplasma Online,,NA,NA,NA,-,NA,1,0,https://covidplasma.online/
-Pin Network,,NA,NA,NA,-,NA,0,1,https://pintnetwork.com/home
-Givered,,NA,NA,NA,-,NA,0,0,https://givered.in/
-Simply Blood,,NA,NA,NA,-,NA,0,1,https://www.simplyblood.com/
-ELister,,NA,NA,NA,-,NA,1,0,https://is.gd/FuAamV
-Facebook Group,,NA,NA,NA,-,NA,1,0,https://www.facebook.com/groups/COVID19PlasmaDonorRecipientHelpIndiaGroup/about
-Overseasvbi,,NA,NA,NA,-,NA,0,0,https://www.overseasvbi.org/covid19plasma/
-Pint Network,,NA,NA,NA,-,NA,5,0,https://pintnetwork.com/home
-Plasma Donors Delhi,,NA,NA,NA,-,NA,0,0,https://linktr.ee/plasmadonors
-RobinHood Army,8851402102,West Delhi,Shivam Malik,NA,Will be available after 15th May,"15:11, 30/4",0,0,
-Unnamed,9205853963,Noida,Deepankar,NA,"Blood Group: O+, Can donate after 20 days","14:46, 24/4",1,0,
-Sarthak jain,"9068434357, 9548434357",NA,NA,NA,plasma available,"13:30, 02/5",0,2,
-Gurbinder singh,9958525752,NA,NA,NA,plasma available,"13:30, 02/5",0,1,
-Manish,999748193,NA,NA,NA,plasma available,"13:30, 02/5",0,1,
-chethan,9538244183,NA,NA,NA,plasma available,"13:30, 02/5",0,1,
-Raghav Chaddha Helpline,9312196646,NA,NA,NA,Plasma Available. One has to fill a form and wait.,"15:00, 8/5",0,0,
-Blood Bank Aakash Healthcare Pvt Ltd,8800015924,NA,NA,NA,You can take a donor of the required blood group who has recovered from covid along with his negative and positive report and get the plasma.,"15:00, 8/5",0,0,
-NA,9414505123,NA,NA,NA,Details of requirement to be sent over whatsapp,"15:00, 8/5",0,0,
+name,contact_number,address,contact_person,medical_conditions,availibility_status,link
+noida police plasma,8851066433,NA,NA,NA,plasma,
+india plasma helpline,8602333666,NA,NA,NA,plasma,
+covid centre plasma,9968614520,NA,NA,NA,plasma,
+Ashok Kumar,9540020011,NA,NA,NA,B+ve recovered on May 1st,
+Geetanjali,9625000788,NA,NA,NA,All available except AB,
+Ghaziabad blood bank,1204777010,NA,NA,NA,Blood for non-covid patients (O+; O-; B+),
+Surya,6230002501,NA,NA,NA,Ab+ available,
+Arshi Feroz,9667161212,NA,NA,NA,Blood Group A+,
+divine charitable blood bank,7838087638,NA,NA,NA,plasma,
+delhi gov blood bank,1125730773,NA,NA,NA,plasma,
+rotary noida blood bank,8447750619,NA,NA,NA,plasma,
+unknown,9810063621,NA,NA,NA,plasma,
+help group ngo,9414505153,NA,NA,NA,plasma,
+Sewa Bharti Corona Helpline,8010066066,Pan India,NA,NA,You can take a donor of any blood group who has recovered from covid along with his negative and positive report and get the plasma that you require.,
+ILBS Hospital,8448884344,Vasant Kunj,NA,NA,You can take a donor of any blood group who has recovered from covid along with his negative and positive report and get the plasma that you require.,https://www.ilbs.in/plasma/
+Raman Jit Singh/ Langda am Productions,9582586158,Delhi & Noida,NA,NA,If You can get a donor of any blood group who has recovered from Covid within 6 months ie. anytime after October he can help to get the plasma that you require.,
+Delhi Plasma,8448884344,Delhi,NA,NA,Send an email to covid.aid.resources21@gmail.com with the subject line - NameOfPatient_BloodGroupRequired_City with the exact details of your plasma requirement in the body. The support team will get back to you as soon as possible.,
+Dhoondh,,NA,NA,NA,-,https://www.dhoondh.com/
+Plasma Donor,,NA,NA,NA,-,https://plasmadonor.in/
+Need Plasma,,NA,NA,NA,-,https://needplasma.in/
+Plasma Line,,NA,NA,NA,-,https://plasmaline.in/
+Delhi Fights Corona,,NA,NA,NA,-,https://delhifightscorona.in/requestplasma/
+Rotary Blood Bank Gurgaon,,NA,NA,NA,-,http://www.rotarybloodbankgurgaon.in/rotary-plasma-bank.html
+Covidplasma Online,,NA,NA,NA,-,https://covidplasma.online/
+Pin Network,,NA,NA,NA,-,https://pintnetwork.com/home
+Givered,,NA,NA,NA,-,https://givered.in/
+Simply Blood,,NA,NA,NA,-,https://www.simplyblood.com/
+ELister,,NA,NA,NA,-,https://is.gd/FuAamV
+Facebook Group,,NA,NA,NA,-,https://www.facebook.com/groups/COVID19PlasmaDonorRecipientHelpIndiaGroup/about
+Overseasvbi,,NA,NA,NA,-,https://www.overseasvbi.org/covid19plasma/
+Pint Network,,NA,NA,NA,-,https://pintnetwork.com/home
+Plasma Donors Delhi,,NA,NA,NA,-,https://linktr.ee/plasmadonors
+RobinHood Army,8851402102,West Delhi,Shivam Malik,NA,Will be available after 15th May,
+Unnamed,9205853963,Noida,Deepankar,NA,Blood Group: O+; Can donate after 20 days,
+Sarthak jain,9068434357; 9548434357,NA,NA,NA,plasma available,
+Gurbinder singh,9958525752,NA,NA,NA,plasma available,
+Manish,999748193,NA,NA,NA,plasma available,
+chethan,9538244183,NA,NA,NA,plasma available,
+Raghav Chaddha Helpline,9312196646,NA,NA,NA,Plasma Available. One has to fill a form and wait.,
+Blood Bank Aakash Healthcare Pvt Ltd,8800015924,NA,NA,NA,You can take a donor of the required blood group who has recovered from covid along with his negative and positive report and get the plasma.,
+NA,9414505123,NA,NA,NA,Details of requirement to be sent over whatsapp,
