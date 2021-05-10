@@ -8,13 +8,12 @@ class User(AbstractUser):
 
 class Oxygen(models.Model):
 
-   name = models.CharField(max_length = 50)
+   name = models.CharField(max_length = 50, default="NA")
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100)
-   website = models.URLField(max_length = 200)
+   area = models.CharField(max_length =200, default="NA")
+   contact_person = models.CharField(max_length =100, default="NA")
    status = models.CharField(max_length = 50,default="NA")
-   last_verified=  models.DateField(default=False)
-   address = models.CharField(max_length = 70)
+   last_verified=  models.DateField(default="NA")
    
    class Meta:
       db_table = "Oxygen"
@@ -62,22 +61,23 @@ class BloodPlasma(models.Model):
 
 class Medicine(models.Model):
 
-   name = models.CharField(max_length = 50)
+   name = models.CharField(max_length = 50, default="NA")
+   pharmacy = models.CharField(max_length=100, default="NA")
    contact_number = models.IntegerField()
-   contact_person = models.CharField(max_length =100,default="NA")
-   quantity = models.IntegerField()
-   expiry_date=  models.DateField()
-   verified = models.BooleanField(default=False)
+   _status = models.CharField(max_length =100,default="NA")
+   last_verified = models.DateTimeField(default="NA")
    
    class Meta:
       db_table = "Medicine"
 
 class EConsultation(models.Model):
 
-   name = models.CharField(max_length = 50)
+   name = models.CharField(max_length = 50, default="NA")
    contact_number = models.IntegerField()
-   link = models.URLField(max_length = 200)
-   verified = models.BooleanField(default=False)
+   area = models.CharField(max_length=200, default="NA")
+   contact_person = models.CharField(max_length=100, default="NA")
+   status = models.CharField(max_length = 200, default="NA")
+   last_verified = models.DateTimeField(default="NA")
    
    class Meta:
       db_table = "EConsultation"
