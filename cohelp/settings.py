@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cohelpdb',
         'USER':'root',
-        'PASSWORD':'Palak',
+        'PASSWORD':'root123',
         'HOST':'localhost',
         'PORT':3306
     }

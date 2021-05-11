@@ -4,4 +4,4 @@ from main.models import *
 
 admin.site.register([User,Oxygen,FoodSupport,
 Ambulance, BloodPlasma, Medicine, EConsultation,
-Patient])
+Patient,PlasmaXchange])

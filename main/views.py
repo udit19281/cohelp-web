@@ -38,7 +38,6 @@ def register(request):
         return HttpResponse("Logged in successfully")
 
     return render(request,"registration/register.html")
-
 def logout_user(request):
     logout(request)
     return render(request,"index.html")

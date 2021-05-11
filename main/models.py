@@ -98,3 +98,20 @@ class Patient(models.Model):
    
    class Meta:
       db_table = "Patient"
+
+
+class PlasmaXchange(models.Model):
+   PatientName = models.CharField(max_length=50)
+   PatientAge = models.IntegerField()
+   PatientBloodGroup = models.CharField(max_length=3)
+   PatientContact = models.IntegerField()
+   PatientAddress = models.CharField(max_length=200)
+   # donor fiels
+   DonorName = models.CharField(max_length=50)
+   DonorAge = models.IntegerField()
+   DonorBloodGroup = models.CharField(max_length=3)
+   DonorContact = models.IntegerField()
+   DonorAddress = models.CharField(max_length=200)
+
+   class Meta:
+      db_table = "PlasmaXchange"
