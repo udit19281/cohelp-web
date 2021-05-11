@@ -41,3 +41,6 @@ def register(request):
 def logout_user(request):
     logout(request)
     return render(request,"index.html")
+
+def plasmaxchange():
+    return render("plasmaxchange.html")
