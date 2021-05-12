@@ -1,0 +1,173 @@
+
+/****************************** LINKS ****************************************/
+
+a:link, a:visited, a:hover, a:active{
+  color: #000000;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/****************************** TOP NAVBAR ****************************************/
+
+#social-media{
+	background-color: #C4C4C4;
+	color: #000000;
+	font-weight: bold;
+}
+
+.search-field{
+	position: absolute;
+  	top: 9px;
+  	right: 155px;
+}
+
+.facebook{
+	position: absolute;
+  	top: -3px;
+  	right: -35px;
+}
+
+.instagram{
+	position: absolute;
+  	top: -3px;
+  	right: -66px;
+}
+
+.youtube{
+	position: absolute;
+  	top: -6px;
+  	right: -106px;
+}
+
+.twitter{
+	position: absolute;
+  	top: 1px;
+  	right: -136px;
+}
+
+.contact-details{
+	position: absolute;
+  	top: 10px;
+}
+
+/****************************** SEARCH FIELD IN TOP NAVBAR ****************************************/
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  color: #C4C4C4;
+  font-weight: bold;
+  background-color: #000000;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
+  color: #C4C4C4;
+  font-weight: 400;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+  color: #C4C4C4;
+  font-weight: 400;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+  color: #C4C4C4;
+  font-weight: 400;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+  color: #C4C4C4;
+  font-weight: 400;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+  color: #C4C4C4;
+  font-weight: 400;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #C4C4C4;
+  font-weight: bold;
+  left: initial;
+}
+
+/****************************** NAVBAR-2 ****************************************/
+
+.logo{
+	 position: absolute;
+	 right: 1150px;
+	 top:10px;
+}
+
+.donate{
+	position: absolute;
+	right: 100px;
+	top:10px;
+}
+
+.join-us{
+	position: absolute;
+	right: 10px;
+	top:10px;
+}
+
+.covid-resources{
+	position: absolute;
+	right: 370px;
+	top:10px;
+}
+
+.workshops{
+	position: absolute;
+	right: 260px;
+	top:10px;
+}
+
+.blogs{
+	position: absolute;
+	right: 200px;
+	top:10px;
+}
+
+
+/****************************** COLLAPSIBLE SIDEBAR ****************************************/
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 10;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background:  #C4C4C4;
+    color: #000000;
+    transition: all 0.3s;
+}
