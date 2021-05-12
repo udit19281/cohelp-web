@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,22 +27,22 @@
                     </li>
                     <li class="nav-item facebook">
                       <a href="https://www.facebook.com/MangoPeopleNGO">
-                      <img src="facebook.png" alt="facebook" style="height: 38px;, width: 38px">
+                      <img src="{% static 'assets/facebook.png' %}" alt="facebook" style="height: 38px; width: 38px">
                       </a>
                     </li>
                     <li class="nav-item instagram">
                       <a href="https://www.instagram.com/mangopeople.org.in/">
-                      <img src="instagram.png" alt="instagram" style="height: 38px;, width: 38px">
+                      <img src="{% static 'assets/instagram.png' %}" alt="instagram" style="height: 38px; width: 38px">
                       </a>
                     </li>
                     <li class="nav-item youtube">
                       <a href="https://www.youtube.com/channel/UC987tkflRes1ZEQQfnG746w">
-                      <img src="youtube.png" alt="youtube" style="height: 44px;, width: 44px">
+                      <img src="{% static 'assets/youtube.png' %}" alt="youtube" style="height: 44px; width: 44px">
                       </a>
                     </li>
                     <li class="nav-item twitter">
                       <a href="https://twitter.com/mangopeople_org/">
-                      <img src="twitter.png" alt="twitter" align="bottom" style="height: 29px;, width: 29px">
+                      <img src="{% static 'assets/twitter.png' %}" alt="twitter" align="bottom" style="height: 29px; width: 29px">
                       </a>
                     </li>
             </ul>
@@ -51,7 +52,7 @@
        <div class="wrapper">
           <nav id="sidebar">
               <div class="sidebar-header">
-                  <img src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+                  <img src="{% static 'assets/logo.jpeg' %}" alt="Logo" width="100px">
               </div>
 
               <ul class="list-unstyled components">
@@ -111,7 +112,7 @@
           </div>
         </div>
        <div>
-          <img class="logo" src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+          <img class="logo" src="{% static 'assets/logo.jpeg' %}" alt="Logo" width="100px">
        </div>
       <div class="navbar-nav flex-row ml-auto" id="navbar2">
           <ul class="navbar-nav">
