@@ -45,9 +45,18 @@
                       <img src="{% static 'assets/twitter.png' %}" alt="twitter" align="bottom" style="height: 29px; width: 29px">
                       </a>
                     </li>
+                 <li class="nav-item logout">
+
+                    </li>
             </ul>
           </div>
     </nav>
+    {%if user.is_authenticated %}
+        <h1>Welcome {{user.username}}</h1>
+        <a href="{% url 'main:logout'%}">logout</a>
+    {% else %}
+        <a href="{% url 'main:login' %}">Login</a>
+    {% endif %}
     <nav id="index" class="navbar navbar-expand-md">
        <div class="wrapper">
           <nav id="sidebar">
