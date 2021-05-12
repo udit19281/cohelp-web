@@ -4,31 +4,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Mango People</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"  type="text/css"  href="homePage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <ul class="nav">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'main:logout' %}">Log Out</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Welcome {{user.username}}</a>
-        </li>
-    </ul>
-    <h1 style="color:#0676d8;">This is our home with login</h1>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'main:login' %}">Log In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'main:register' %}">Register</a>
-        </li>
-    </ul>
-    <h1>This is our home without login</h1>
-        {% endif %}
-    
-    
+    <nav id="social-media" class="navbar navbar-expand-md fixed-top-sm justify-content-start flex-nowrap" style="height: 50px;">
+      <div class="contact-details">Contact us 0-9198566974</div>
+        <div class="navbar-nav flex-row ml-auto search-field">
+            <ul class="navbar-nav">
+                    <li class="nav-item">
+                       <form action="" class="search-form">
+                            <div class="form-group has-feedback">
+                                <label for="search" class="sr-only">Search</label>
+                                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            </div>
+                       </form>
+                    </li>
+                    <li class="nav-item facebook">
+                      <a href="https://www.facebook.com/MangoPeopleNGO">
+                      <img src="facebook.png" alt="facebook" style="height: 38px;, width: 38px">
+                      </a>
+                    </li>
+                    <li class="nav-item instagram">
+                      <a href="https://www.instagram.com/mangopeople.org.in/">
+                      <img src="instagram.png" alt="instagram" style="height: 38px;, width: 38px">
+                      </a>
+                    </li>
+                    <li class="nav-item youtube">
+                      <a href="https://www.youtube.com/channel/UC987tkflRes1ZEQQfnG746w">
+                      <img src="youtube.png" alt="youtube" style="height: 44px;, width: 44px">
+                      </a>
+                    </li>
+                    <li class="nav-item twitter">
+                      <a href="https://twitter.com/mangopeople_org/">
+                      <img src="twitter.png" alt="twitter" align="bottom" style="height: 29px;, width: 29px">
+                      </a>
+                    </li>
+            </ul>
+          </div>
+    </nav>
+    <nav id="index" class="navbar navbar-expand-md">
+       <div class="wrapper">
+          <nav id="sidebar">
+              <div class="sidebar-header">
+                  <img src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+              </div>
+
+              <ul class="list-unstyled components">
+                  <p>Dummy Heading</p>
+                  <li class="active">
+                      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                      <ul class="collapse list-unstyled" id="homeSubmenu">
+                          <li>
+                              <a href="#">Home 1</a>
+                          </li>
+                          <li>
+                              <a href="#">Home 2</a>
+                          </li>
+                          <li>
+                              <a href="#">Home 3</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#">About</a>
+                  </li>
+                  <li>
+                      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                      <ul class="collapse list-unstyled" id="pageSubmenu">
+                          <li>
+                              <a href="#">Page 1</a>
+                          </li>
+                          <li>
+                              <a href="#">Page 2</a>
+                          </li>
+                          <li>
+                              <a href="#">Page 3</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#">Portfolio</a>
+                  </li>
+                  <li>
+                      <a href="#">Contact</a>
+                  </li>
+              </ul>
+
+          </nav>
+          <!-- Page Content -->
+          <div id="content">
+
+              <nav class="navbar navbar-expand-lg">
+                  <div class="container-fluid">
+
+                      <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                          <i class="fas fa-bars"></i>
+                          <span>Toggle Sidebar</span>
+                      </button>
+                  </div>
+              </nav>
+          </div>
+        </div>
+       <div>
+          <img class="logo" src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+       </div>
+      <div class="navbar-nav flex-row ml-auto" id="navbar2">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link covid-resources" href="#">Covid Resources</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link workshops" href="#">Workshops</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link blogs" href="#">Blogs</a>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="btn btn-danger donate">
+                          <span>DONATE</span>
+                  </button>
+              </li>
+              <li class="nav-item">
+                  <button type="button" class="btn btn-danger join-us">
+                          <span>JOIN US</span>
+                  </button>
+              </li>
+          </ul>
+      </div>
+    </nav>  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
 </body>
 </html>
