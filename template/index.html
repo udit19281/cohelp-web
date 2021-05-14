@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mango People</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400&display=swap" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"  type="text/css"  href="homePage.css">
+    <link rel="stylesheet"  type="text/css"  href="{% static 'css/homePage.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -26,32 +27,41 @@
                     </li>
                     <li class="nav-item facebook">
                       <a href="https://www.facebook.com/MangoPeopleNGO">
-                      <img src="facebook.png" alt="facebook" style="height: 38px;, width: 38px">
+                      <img src="{% static 'assets/facebook.png' %}" alt="facebook" style="height: 38px; width: 38px">
                       </a>
                     </li>
                     <li class="nav-item instagram">
                       <a href="https://www.instagram.com/mangopeople.org.in/">
-                      <img src="instagram.png" alt="instagram" style="height: 38px;, width: 38px">
+                      <img src="{% static 'assets/instagram.png' %}" alt="instagram" style="height: 38px; width: 38px">
                       </a>
                     </li>
                     <li class="nav-item youtube">
                       <a href="https://www.youtube.com/channel/UC987tkflRes1ZEQQfnG746w">
-                      <img src="youtube.png" alt="youtube" style="height: 44px;, width: 44px">
+                      <img src="{% static 'assets/youtube.png' %}" alt="youtube" style="height: 44px; width: 44px">
                       </a>
                     </li>
                     <li class="nav-item twitter">
                       <a href="https://twitter.com/mangopeople_org/">
-                      <img src="twitter.png" alt="twitter" align="bottom" style="height: 29px;, width: 29px">
+                      <img src="{% static 'assets/twitter.png' %}" alt="twitter" align="bottom" style="height: 29px; width: 29px">
                       </a>
+                    </li>
+                 <li class="nav-item logout">
+
                     </li>
             </ul>
           </div>
     </nav>
+    {%if user.is_authenticated %}
+        <h1>Welcome {{user.username}}</h1>
+        <a href="{% url 'main:logout'%}">logout</a>
+    {% else %}
+        <a href="{% url 'main:login' %}">Login</a>
+    {% endif %}
     <nav id="index" class="navbar navbar-expand-md">
        <div class="wrapper">
           <nav id="sidebar">
               <div class="sidebar-header">
-                  <img src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+                  <img src="{% static 'assets/logo.jpeg' %}" alt="Logo" width="100px">
               </div>
 
               <ul class="list-unstyled components">
@@ -111,7 +121,7 @@
           </div>
         </div>
        <div>
-          <img class="logo" src="WhatsApp Image 2021-05-09 at 2.56.51 PM.jpeg" alt="Logo" width="100px">
+          <img class="logo" src="{% static 'assets/logo.jpeg' %}" alt="Logo" width="100px">
        </div>
       <div class="navbar-nav flex-row ml-auto" id="navbar2">
           <ul class="navbar-nav">

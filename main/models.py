@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class User(AbstractUser):
@@ -13,7 +14,7 @@ class Oxygen(models.Model):
    area = models.CharField(max_length =200, default="NA")
    contact_person = models.CharField(max_length =100, default="NA")
    status = models.CharField(max_length = 50,default="NA")
-   last_verified=  models.DateField(default="NA")
+   last_verified=  models.DateField()
    
    class Meta:
       db_table = "Oxygen"
@@ -64,8 +65,9 @@ class Medicine(models.Model):
    name = models.CharField(max_length = 50, default="NA")
    pharmacy = models.CharField(max_length=100, default="NA")
    contact_number = models.IntegerField()
-   _status = models.CharField(max_length =100,default="NA")
-   last_verified = models.DateTimeField(default="NA")
+   status = models.CharField(max_length =100,default="NA")
+   last_verified = models.DateTimeField()
+
    
    class Meta:
       db_table = "Medicine"
@@ -77,7 +79,7 @@ class EConsultation(models.Model):
    area = models.CharField(max_length=200, default="NA")
    contact_person = models.CharField(max_length=100, default="NA")
    status = models.CharField(max_length = 200, default="NA")
-   last_verified = models.DateTimeField(default="NA")
+   last_verified = models.DateTimeField()
    
    class Meta:
       db_table = "EConsultation"
@@ -98,7 +100,6 @@ class Patient(models.Model):
    
    class Meta:
       db_table = "Patient"
-
 
 class PlasmaXchange(models.Model):
    PatientName = models.CharField(max_length=50)
