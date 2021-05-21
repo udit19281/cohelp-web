@@ -13,7 +13,7 @@
 /* Custom Header Size
 -----------------------------------------------------------------*/
 .header-size-sm #header-wrap #logo img {
-	height: var(--header-height, 70px);
+	height: 60px;
 }
 
 @media (min-width: 992px) {
@@ -548,12 +548,40 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 
 .testi-meta { margin: 10px 0 0 30px; }
 
+/* Floating Donate
+-----------------------------------------------------------------*/
+.floating-donate-wrap {
+	position: fixed;
+	right: 10px;
+	bottom: 200px;
+	z-index: 299;
+	display:none;
+}
+
+
+.full-width-img {
+	margin-left: calc(50% - 540px);
+	max-width: 950px;
+	width: 950px;
+}
+
+
+@media (min-width: 768px) {
+	.full-width-img {
+		margin-left: calc(50% - 200px);
+		max-width: 800px;
+		width: 800px;
+	}
+}
+
+
+
 /* Floating Contact
 -----------------------------------------------------------------*/
 .floating-contact-wrap {
 	position: fixed;
-	right: 50px;
-	bottom: 120px;
+	right: 450px;
+	bottom: 190px;
 	z-index: 299;
 }
 
@@ -569,15 +597,15 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 	cursor: pointer;
 	z-index: 3;
 	color: #222;
-	-webkit-transform: translate(-50%, -50%);
+	/*-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	transition: transform .3s ease;
+	transition: transform .3s ease;*/
 }
 
 .floating-contact-wrap .floating-contact-btn:hover,
 .floating-contact-wrap.active .floating-contact-btn {
-	-webkit-transform: translate(-50%, -50%) scale(1.1);
-	transform: translate(-50%, -50%) scale(1.1);
+	/*-webkit-transform: translate(-50%, -50%) scale(1.1);
+	transform: translate(-50%, -50%) scale(1.1);*/
 	background-color: #222;
 	color: #FFF;
 }
@@ -587,26 +615,26 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 	top: 50%;
 	left: 50%;
 	font-size: 22px;
-	-webkit-transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+	/*-webkit-transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 	transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 	-webkit-transition-property: opacity, -webkit-transform;
 	transition-property: opacity, transform;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	-webkit-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;*/
 }
 
 .floating-contact-wrap .floating-contact-btn .floating-contact-icon.btn-active,
 .floating-contact-wrap.active .floating-contact-btn .floating-contact-icon {
 	opacity: 0;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	/*-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);*/
 }
 
 .floating-contact-wrap.active .floating-contact-btn .floating-contact-icon.btn-active {
 	opacity: 1;
-	-webkit-transform: translate(-50%, -50%) rotate(-45deg);
-	transform: translate(-50%, -50%) rotate(-45deg);
+	/*-webkit-transform: translate(-50%, -50%) rotate(-45deg);
+	transform: translate(-50%, -50%) rotate(-45deg);*/
 }
 
 .floating-contact-wrap .floating-contact-box {
@@ -618,20 +646,20 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 	background-color: #fff;
 	border-radius: 6px;
 	z-index: 1;
-	-webkit-transform-origin: right bottom;
+	/*-webkit-transform-origin: right bottom;
 	transform-origin: right bottom;
 	box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.07);
 	-webkit-transform: scale(.01);
 	transform: scale(.01);
 	 -webkit-transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 	transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-	-webkit-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;*/
 }
 
 .floating-contact-wrap.active .floating-contact-box {
 	opacity: 1;
-	-webkit-transform: scale(1);
-	transform: scale(1);
+	/*-webkit-transform: scale(1);
+	transform: scale(1);*/
 }
 
 .floating-contact-wrap .css3-spinner { background-color: rgba(255, 255, 255, 0.8) }
