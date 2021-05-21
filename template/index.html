@@ -53,9 +53,9 @@
     </nav>
     {%if user.is_authenticated %}
         <h1>Welcome {{user.username}}</h1>
-        <a href="{% url 'main:logout'%}">logout</a>
+        <a href="{% url 'authentication:logout'%}">logout</a>
     {% else %}
-        <a href="{% url 'main:login' %}">Login</a>
+        <a href="{% url 'authentication:login' %}">Login</a>
     {% endif %}
     <nav id="index" class="navbar navbar-expand-md">
        <div class="wrapper">
@@ -63,7 +63,10 @@
               <div class="sidebar-header">
                   <img src="{% static 'assets/logo.jpeg' %}" alt="Logo" width="100px">
               </div>
-
+              <form method="post" action="{% url 'authentication:logout' %}">
+                {% csrf_token %}
+               <button class="btn btn-sm btn-dark" type="submit">Logout</button>
+              </form>
               <ul class="list-unstyled components">
                   <p>Dummy Heading</p>
                   <li class="active">
