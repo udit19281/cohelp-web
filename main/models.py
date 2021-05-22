@@ -1,11 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+
 class User(AbstractUser):
     pass
 
+User_obj=get_user_model()
 
 class Oxygen(models.Model):
 
@@ -30,7 +34,7 @@ class FoodSupport(models.Model):
    verified = models.BooleanField(default=False)
 
    class Meta:
-      db_table = "FoodSupport"
+      db_table = "Foodsupport"
 
 class Ambulance(models.Model):
 
@@ -58,7 +62,7 @@ class BloodPlasma(models.Model):
    verified = models.BooleanField(default=False)
    
    class Meta:
-      db_table = "BloodPlasma"
+      db_table = "Bloodplasma"
 
 class Medicine(models.Model):
 
@@ -82,7 +86,7 @@ class EConsultation(models.Model):
    last_verified = models.DateTimeField()
    
    class Meta:
-      db_table = "EConsultation"
+      db_table = "Econsultation"
 
 class Patient(models.Model):
 
@@ -115,4 +119,30 @@ class PlasmaXchange(models.Model):
    DonorAddress = models.CharField(max_length=200)
 
    class Meta:
-      db_table = "PlasmaXchange"
+      db_table = "Plasmaxchange"
+
+
+class RequestedResource(models.Model):
+   available_resources =[
+      ('Oxygen', 'Oxygen'),
+    ('Bloodplasma', 'Bloodplasma'),
+    ('Foodsupport', 'Foodsupport'),
+    ('Econsultation', 'Econsultation'),
+    ('Medicine', 'Medicine'),
+   ]
+
+   cho_status=[
+      ('Pending', 'Pending'),
+      ('Ok','Ok'),
+      ('Failed', 'Failed'),
+   ]
+
+   user=models.ForeignKey(User, on_delete=models.DO_NOTHING,default=None)
+   resource = models.CharField(choices=available_resources,max_length=50)
+   status=models.CharField(choices=cho_status,default="Pending",max_length=50)
+
+   class Meta:
+      db_table = "RequestedResource"
+   def __str__(self):
+      print(self.user)
+      return self.resource+" Requested By "+self.user.username
