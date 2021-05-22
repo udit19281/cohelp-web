@@ -2,6 +2,7 @@
 *.suo
 .idea
 .env
+db.sqlit3
 *.user
 *.userosscache
 *.sln.docstates
