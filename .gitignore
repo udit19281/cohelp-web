@@ -2,6 +2,7 @@
 *.suo
 .idea
 .env
+.pyc
 db.sqlit3
 *.user
 *.userosscache

@@ -115,7 +115,7 @@ class Login(View):
                 if user.is_active:
                     auth.login(request,user)
                     messages.success(request,"Welcome "+username+", You have been Authenticated successfully!")
-                    return redirect('main:index')
+                    return redirect('main:dashboard')
                 else:
                     messages.error(request,"Account is not active!")
                     return render(request,'auth/login.html')
@@ -128,4 +128,4 @@ class Logout(View):
     def post(self,request):
         auth.logout(request)
         messages.success(request,"You have been logged out")
-        return redirect('authentication:login')
+        return redirect('main:home')

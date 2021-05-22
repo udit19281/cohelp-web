@@ -6,11 +6,16 @@ from django.db import IntegrityError
 from django.urls import reverse
 from .forms import plasmaxchangeForm
 # Create your views here.
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request,"home.html")
 
 
+@login_required(login_url="authentication:login")
+def dashboard(request):
+    return render(request,"dashboard.html")
 
 def plasmaxchange(request):
     form = plasmaxchangeForm()

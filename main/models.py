@@ -137,7 +137,7 @@ class RequestedResource(models.Model):
       ('Failed', 'Failed'),
    ]
 
-   user=models.ForeignKey(User, on_delete=models.DO_NOTHING,default=None)
+   user=models.ForeignKey(User, on_delete=models.DO_NOTHING,default=None,null=True)
    resource = models.CharField(choices=available_resources,max_length=50)
    status=models.CharField(choices=cho_status,default="Pending",max_length=50)
 
