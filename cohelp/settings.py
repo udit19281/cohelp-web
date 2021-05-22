@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'main',
     'django.contrib.sites',
     'authentication',
+    #3rd party
+    'crispy_forms',
+    'widget_tweaks',
     #all auth
     'allauth',
     'allauth.account',
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
 ]
+CRISPY_TEMPLATE_PACK="bootstrap3"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -157,7 +161,9 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
-
+MESSAGE_TAGS={
+    messages.ERROR:"danger"
+}
 #email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST=config('EMAIL_HOST')

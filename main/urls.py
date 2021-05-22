@@ -6,9 +6,7 @@ app_name="main"
 urlpatterns = [
     path('',views.index,name="home"),
     path('dashboard/',views.dashboard,name="dashboard"),
-    # path("login/",views.login_user,name="login"),
-    # path("register/",views.register,name="register"),
-    # path("logout/",views.logout_user,name="logout"),
-    path("plasmaxchange/", views.plasmaxchange, name="plasmaxchange"),
+    path('form/<str:name>/',views.form,name="form"),
+    
 ]
     # path("login/",LoginView.as_view(),name="login")

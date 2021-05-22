@@ -1,15 +1,18 @@
 from django import forms
-from . models import PlasmaXchange
+from .models import PlasmaXchange,RequestedResource
 from django.forms.models import ModelForm
 
 class plasmaxchangeForm(ModelForm):
-    PatientName = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control',}
-        ))
-    DonorName = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control',}
-        ))
+    class Meta:
+        model = PlasmaXchange
+        fields='__all__'
+        exclude=('status',)
+
+
+class RequestedResourceForm(ModelForm):
 
     class Meta:
-        model=PlasmaXchange
-        fields=('PatientName','DonorName')
+        model=RequestedResource
+        fields='__all__'
+        exclude=('status',)
+        # widgets=forms.Select(attrs={'class': 'form-control',})

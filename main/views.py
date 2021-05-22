@@ -1,12 +1,13 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse, HttpResponseRedirect
 from main.models import User
 from django.db import IntegrityError
 from django.urls import reverse
-from .forms import plasmaxchangeForm
+from django.contrib import messages
+from .forms import *
 # Create your views here.
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
 
 
 def index(request):
@@ -17,14 +18,37 @@ def index(request):
 def dashboard(request):
     return render(request,"dashboard.html")
 
-def plasmaxchange(request):
-    form = plasmaxchangeForm()
-    if request.method =='POST':
-        form = plasmaxchangeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse("Form Received")
-    context={
-        'form':form
-    }
-    return render(request,"plasmaxchange.html",context)
+@login_required(login_url="authentication:login")
+def form(request,name):
+    print(request.method)
+    if request.method =='GET':
+        if(name=="resources"):
+            form = RequestedResourceForm()
+            context={
+        'formname':'resources',
+        'form':form }
+            return render(request,"form.html",context)
+        elif (name=="plasmaxchange"):
+            form = plasmaxchangeForm()
+            context={
+        'formname':'plasmaxchange',
+        'form':form}
+        return render(request,"form.html",context)
+    if request.method == 'POST':
+        if(name=="resources"):
+           form=RequestedResourceForm(request.POST)
+           if form.is_valid():
+                form.save()
+                messages.success(request,"Form has been submitted successfully")
+                return redirect("main:dashboard")
+
+        if(name=="plasmaxchange"):
+           form=plasmaxchangeForm(request.POST)
+           if form.is_valid():
+                form.save()
+                messages.success(request,"Form has been submitted successfully")
+                return redirect("main:dashboard")
+    messages.error(request,"Invalid form!")
+    return redirect("main:dashboard")  
+        
+

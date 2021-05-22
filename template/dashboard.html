@@ -13,10 +13,19 @@
       </ul>
 {% endif %}
 
-<h1>Hello {{user.username}}</h1>
+<h1>Welcome, {{user.username}}</h1>
 {%if user.is_authenticated %}
+<div class="Content mb-5" style="text-align: center;">
+<form method="get" action="/form/resources/">
+  {% csrf_token %}
+  <button class="btn btn-primary" type="submit">Resource Request Form</button>
+</form>
 
-<h1>Yes</h1>
+<form method="get" action="/form/plasmaxchange/">
+  {% csrf_token %}
+  <button class="btn btn-primary" type="submit">Plasmax change form</button>
+</form>
+</div>
 {% else %}
 <h1>Not</h1>
 {% endif %}
