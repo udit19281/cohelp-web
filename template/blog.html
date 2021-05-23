@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock title%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}" type="text/css" />
+{%endblock style%}
+{% block content %}
+    <div id="heading">
+        <img src="{% static 'assets/Mango_LOGO_transparentBG.png' %}" width="10%">
+        <span class="blog-heading">Blogs</span>
+    </div>
+
+    <div id="list-div">
+        <ul class="blog-list">
+            <li>
+                <div class="list-image ele-div">
+                      <img src="{% static 'assets/blogs/blog1.png' %}"> 
+                </div>
+                <div class="list-text ele-div">
+                    <a href="https://www.mangopeople.org.in/single-post/2018/03/30/community-dome-project" target="_blank"><h3>Community dome project</h3></a>
+                    <p>
+                        #CommunityDomeProject 6-12 Apr Suggested Contribution Rs 7000 (1000 per day, includes Workshop Fee, Food & Stay covered on sharing...
+                    </p>    
+                </div>
+            </li>
+            <li>
+                <div class="list-image ele-div">
+                      <img src="{% static 'assets/blogs/blog2.png' %}"> 
+                </div>
+                <div class="list-text ele-div">
+                    <a href="https://www.mangopeople.org.in/single-post/2018/03/30/community-dome-project" target="_blank"><h3>Grow your Blog Community</h3></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis tenetur iure autem error similique dicta magni et expedita quo at, sequi rerum nisi. 
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock content %}
