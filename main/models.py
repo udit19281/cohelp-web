@@ -15,7 +15,8 @@ cho_status2=[
    ]
 
 class User(AbstractUser):
-    pass
+   phonenumber = models.CharField(max_length=13,default="NA")
+   volunteer = models.BooleanField(default=False)
 
 User_obj=get_user_model()
 
