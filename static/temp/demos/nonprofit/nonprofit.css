@@ -5,15 +5,38 @@
 /* Root Settings
 -----------------------------------------------------------------*/
 :root {
-	--themecolor:  #C6C09C;
+	--themecolor:  #b6d7a8;
 	--themecolorrgb: 198,192,156;
-	--header-height: 70px;
+	--header-height: 80px;
+}
+.floating-donate-wrap {
+	position: fixed;
+	right: 200px;
+	bottom: 376px;
+	z-index: 299;
+	display:none;
+}
+
+
+.full-width-img {
+	margin-left: calc(50% - 540px);
+	max-width: 950px;
+	width: 950px;
+}
+
+
+@media (min-width: 768px) {
+	.full-width-img {
+		margin-left: calc(50% - 200px);
+		max-width: 800px;
+		width: 800px;
+	}
 }
 
 /* Custom Header Size
 -----------------------------------------------------------------*/
 .header-size-sm #header-wrap #logo img {
-	height: var(--header-height, 70px);
+	height: 70px;
 }
 
 @media (min-width: 992px) {
@@ -737,7 +760,7 @@ body:not(.floating-contact-processing) .floating-contact-loader { display: none;
 
 	#header-wrap,
 	#header.sticky-header #header-wrap {
-		background-color: var(--themecolor, #C6C09C);
+		background-color: var(--themecolor, #b6d7a8);
 	}
 
 	.slider-feature { transform: translateY(-50%); }
