@@ -5,14 +5,17 @@ window.onload=function() {
     const showps=document.getElementById("show");
     const ps=document.getElementById("passwordf");
     const username=document.getElementById("usernamef");
-
-    show.addEventListener("click",()=>{
+    const btn=document.getElementById("submit");
+    showps.addEventListener("click",()=>{
+        // console.log("Clicked");
         if(showps.textContent==="Show"){
             showps.textContent="Hide";
             ps.setAttribute("type","text");
+            showps.style.color="red";
         }
         else{
             showps.textContent="Show";
+            showps.style.color="blue";
             ps.setAttribute("type","password");
         }
     });

@@ -34,28 +34,36 @@
         <div class="bg1"></div>
         <div class="bg2"></div>
       </div>
-      <form class="form" method="post" action="{% url 'authentication:signup' %}">
+      <form class="form" name="form" method="post" action="{% url 'authentication:signup' %}">
         {% csrf_token %}
         <label for="username">Username</label>
         <div class="input-box">
           <ion-icon class="prefix" name="person-outline"></ion-icon>
-          <input id="usernamef" type="text" name="username" spellcheck="false" />
+          <input id="usernamef" type="text" name="username" placeholder="Enter username" spellcheck="false" />
           <label class="invalid-feedback" style="display:none" id="usernamefeedbackarea"></label>
         </div>
         <label for="email">Email</label>
         <div class="input-box">
           <ion-icon class="prefix" name="person-outline"></ion-icon>
-          <input id="emailf" type="email" name="email" spellcheck="false" />
+          <input id="emailf" type="email" name="email" placeholder="Enter your email" spellcheck="false" />
           <div class="invalid-feedback" style="display:none" id="emailfeedbackarea"></div>
         </div>
         <label for="password">Password</label>
         <div class="input-box">
           <ion-icon class="prefix" name="lock-closed-outline"></ion-icon>
-          <input id="passwordf" name="password" type="password" spellcheck="false" />
-          <small class="float-right mr-auto" id="show">Show</small>
+          <input id="passwordf" name="password" type="password" placeholder="Enter your password"spellcheck="false" />
+          <small class="float-right mr-auto" style="color:blue;" id="show">Show</small>
           <ion-icon class="switch-btn" name="eye-off-outline"></ion-icon>
         </div>
-        <button class="send-btn">Signup
+        <label for="phonenumber">Phone Number</label>
+        
+        <div class="input-box mt-0.3">
+          <ion-icon class="prefix" name="lock-closed-outline"></ion-icon>
+          
+          <input id="phonenumberf" name="phonenumber" type="text" placeholder="Enter 10-digit Phone Number" oninput="javascript: if (this.value.length > this.maxLength || this.value.length<maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength=10/>
+          <ion-icon class="switch-btn" name="eye-off-outline"></ion-icon>
+        </div>
+        <button class="send-btn" id="submit">Signup
           <ion-icon name="arrow-forward-circle-outline"></ion-icon>
         </button>
         <div class="mt-1">
@@ -64,6 +72,10 @@
       </div>
     </div>
   </main>
+  <script>
+    const pd=document.getElementById("phonenumber");
+  pd.defaultValue="+91";
+  </script>
   <script src="{% static 'js/min.js' %}"></script>
   <script src="{% static 'js/vali-email.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
