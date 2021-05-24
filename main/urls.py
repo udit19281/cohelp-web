@@ -9,8 +9,8 @@ urlpatterns = [
     path('form/<str:name>/',views.form,name="form"),
     path('blog/',views.blog,name="blog"),
     path('mission/',views.mission,name="mission"),
-    path('workshops/',views.workshop,name="workshop")
+    path('workshops/',views.workshop,name="workshop"),
     
-    path('contact/',views.contact,name="contact"),
+    path('contact/',views.contact,name="contact")
 ]
     # path("login/",LoginView.as_view(),name="login")
