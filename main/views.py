@@ -16,6 +16,9 @@ def index(request):
 def blog(request):
     return render(request,"blog.html")
 
+def mission(request):
+    return render(request,"mission.html")
+
 
 @login_required(login_url="authentication:login")
 def dashboard(request):

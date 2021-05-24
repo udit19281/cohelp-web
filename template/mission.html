@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mission{% endblock title%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/mission.css' %}" type="text/css" />
+{%endblock style%}
+{% block content %}
+    <div id="heading">
+        <img src="{% static 'assets/Mango_LOGO_transparentBG.png' %}" width="10%">
+        <span class="blog-heading">Mission</span>
+    </div>
+
+    
+
+    <section class="content">
+        <p>MANGO PEOPLE, मैंNGO a HINGLISH word, combining Hindi and English alphabets, where 
+        'मैं'(Main) means 'ME' and 'NGO' stands for a 'Non-Government' Organisation.</p>
+
+        <p>In Non-Govern-ment, the word ‘MENT’ is derived from the Greek language which means 
+        ‘MIND’. Therefore, it is referred to be an organization that is not governed by mere 
+        Mind but also heart and soul. It is a Holistic Free Organisation with Unlimited Scope.</p>
+
+        <p>MANGO PEOPLE are soul-driven free thinkers, not governed by the mind of others, breaking 
+        the patterns, breaking the illusion, believe that life is way beyond, just trying to buy 
+        more comforts and luxury. The true riches to the mankind are the Natural Resources given 
+        to us by the Mother Earth.</p>
+
+        <p>Mango People is an NGO working towards the cause of sustainable living since 2011, by 
+        educating individuals to build their own eco-friendly & sustainable structures, using natural 
+        materials like Bamboo, Mud & other local recyclable material, available. Hands-on workshop 
+        modules bring about an experience to get into integrities of basic design and layouts, model 
+        making, structural geometries for space frames, material handling and construction.</p>
+    </section>
+
+    <div id="bottom">
+        <img src="{% static 'assets/mission.jpg' %}" width="10%">
+    </div>
+
+{% endblock content %}
