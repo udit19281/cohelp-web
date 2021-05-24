@@ -2,7 +2,6 @@
 *.suo
 .idea
 .env
-.pyc
 db.sqlit3
 *.user
 *.userosscache
@@ -10,8 +9,8 @@ db.sqlit3
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.pyc
-__pycache__/
-__pycache__
+env
+**/__pycache__/
 *.py[cod]
 # Build results
 [Dd]ebug/
@@ -21,4 +20,4 @@ __pycache__
 db.sqlit3
 */migrations/
 *.cpython-38.pyc
-cohelp/__pycache__/*
+main/migrations
