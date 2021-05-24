@@ -11,5 +11,6 @@ urlpatterns = [
     path('mission/',views.mission,name="mission"),
     path('workshops/',views.workshop,name="workshop")
     
+    path('contact/',views.contact,name="contact"),
 ]
     # path("login/",LoginView.as_view(),name="login")
