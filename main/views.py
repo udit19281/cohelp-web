@@ -19,6 +19,9 @@ def blog(request):
 def mission(request):
     return render(request,"mission.html")
 
+def workshop(request):
+    return render(request,"workshop.html")
+
 
 @login_required(login_url="authentication:login")
 def dashboard(request):

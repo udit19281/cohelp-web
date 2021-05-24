@@ -8,7 +8,8 @@ urlpatterns = [
     path('dashboard/',views.dashboard,name="dashboard"),
     path('form/<str:name>/',views.form,name="form"),
     path('blog/',views.blog,name="blog"),
-    path('mission/',views.mission,name="mission")
+    path('mission/',views.mission,name="mission"),
+    path('workshops/',views.workshop,name="workshop")
     
 ]
     # path("login/",LoginView.as_view(),name="login")

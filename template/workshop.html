@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Workshop{% endblock title%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/workshop.css' %}" type="text/css" />
+{%endblock style%}
+{% block content %}
+    <div id="heading">
+        <img src="{% static 'assets/Mango_LOGO_transparentBG.png' %}" width="10%">
+        <span class="blog-heading">Hands-On Workshops</span>
+    </div>
+
+    <section id="list-sec">
+        <ul>
+            <li>
+                Introduction to Natural Materials
+            </li>
+            <li>
+                Platonic Geometry & Design
+            </li>
+            <li>
+                Build your own Home
+            </li>
+            <li>
+                Model Making
+            </li>
+            <li>
+                Product Design
+            </li>
+        </ul>
+    </section>
+
+    <main>
+        <div id="info">
+            <div class="text-info">
+                <h3>
+                    GEOOSIC TUNNEL DOME @Geeli Mitti Farms
+                </h3>
+                <span>
+                    More than 15 participants from different parts of the world, joined us hands-on for a 3-day residential natural building workshop, 
+                    to understand natural & local construction materials and techniques in building an eco-friendly, sustainable earthen home. Coming 
+                    hands-on with bamboo, in building a geodesic tunnel dome spaceframe for a 38x18 sqft outdoor workshop area for Geeli Mitti Farms, 
+                    workmates completed the spaceframe in just 2 days.
+                </span>
+            </div>
+            <div class="pic-info"> 
+                <img src="{% static 'assets/workshop1.png' %}" width="90%">
+            </div>
+        </div>
+
+
+        <!-- transition: opacity .4s ease; -->
+        
+        <div class="w-images">
+            
+            <img src="{% static 'assets/workshop/1.png' %}" height="299rem">
+            <img src="{% static 'assets/workshop/2.png' %}" height="299rem">
+            <img src="{% static 'assets/workshop/3.png' %}" height="299rem">
+
+            <img src="{% static 'assets/workshop/4.png' %}" height="347rem">
+            <img src="{% static 'assets/workshop/5.png' %}" height="347rem">
+            <img src="{% static 'assets/workshop/6.png' %}" height="347rem">
+
+            <img src="{% static 'assets/workshop/7.png' %}" height="287.5rem">
+            <img src="{% static 'assets/workshop/8.png' %}" height="287.5rem">
+
+            <img src="{% static 'assets/workshop/9.png' %}" height="288rem">
+            <img src="{% static 'assets/workshop/10.png' %}" height="288rem">
+
+            <img src="{% static 'assets/workshop/11.png' %}" height="313rem">
+            <img src="{% static 'assets/workshop/12.png' %}" height="313rem">
+            <img src="{% static 'assets/workshop/13.png' %}" height="313rem">
+
+        </div>
+
+        <div id="map"></div>
+
+        <script>
+            function initMap() {
+                var location = {lat: 29.42629543228922, lng: 79.39101655200128};
+                var map = new google.maps.Map(document.getElementById("map"), {zoom: 7, center: location});
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap"
+        type="text/javascript"></script>
+
+    </main>
+
+{% endblock content %}
