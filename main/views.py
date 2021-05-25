@@ -27,6 +27,9 @@ def workshop(request):
 def founders(request):
     return render(request,"founders.html")
 
+def volunteer(request):
+    return render(request,"volunteer.html")
+
 def contact(request):
     form=contactform()
     if request.method == 'POST':

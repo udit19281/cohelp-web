@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Volunteer{% endblock title%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/volunteer.css' %}" type="text/css" />
+{%endblock style%}
+
+{% block content %}
+    
+<div class="section bg-transparent">
+    <div class="container clearfix">
+        <div class="row justify-content-center">
+            <div class="col-md-7 center">
+                <div class="heading-block border-bottom-0 mb-4">
+                    <h2 class="mb-4 nott">Willing to contribute to Mango People?</h2>
+                </div>
+                <div class="svg-line bottommargin-sm clearfix">
+                    <img src="{% static 'temp/demos/nonprofit/images/divider-1.svg' %}" alt="svg divider" height="15">
+                </div>
+                <p>You are most Welcome to Contribute to Mango People in every way you wish.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="containerf col-auto mt-5 mb-10" style="background: #FFF url({% static 'temp/demos/nonprofit/images/slider/volunteer.png' %}) no-repeat 40% 100% / auto 70%">
+          <div class="login">
+              <h1>Volunteer form</h1>
+                <form method="POST" id="volunteer" action="/form/{{ formname }}/" class="" style="display: inline-block;">
+
+                    <div class='col-auto mt-2' style="margin-left: 2px">
+                        <label for="Name"><b>Name</b></label><br>
+                        <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
+                    </div><br>
+
+                    <div class='col-auto mt-2' style="margin-left: 2px">
+                        <label for="contact"><b>Contact Number</b></label><br>
+                        <input type="tel" placeholder="Enter mobile number" name="contact" id="contact" required pattern="[0-9]{10}">
+                    </div><br>
+
+                    <div class='col-auto mt-2' >
+                        <label for="1" for="2" for="3" for="4">Choose the field you want to apply for:</label>
+                        <div class='col-auto mt-2' >
+                            <input type="radio" id="GeoDesic Dome building Projects" name="field" value="GeoDesic Dome building Projects">
+                            <label for="GeoDesic Dome building Projects">Hands-on GeoDesic Dome building Projects</label><br>
+                            <input type="radio" id="Marketing Experts" name="field" value="Marketing Experts">
+                            <label for="Marketing Experts">Marketing Experts for Promoting Projects</label><br>
+                            <input type="radio" id="Accounting/CA experts" name="field" value="Accounting/CA experts">
+                            <label for="Accounting/CA experts">Accounting/CA experts for legal works</label><br>
+                            <input type="radio" id="Website/Application Developers" name="field" value="Website/Application Developers">
+                            <label for="Website/Application Developers">Website/Application Developers</label><br>
+                        </div>
+                    </div><br>
+                    
+                    <div class='col-auto mt-2' >
+                        <label for="experience"><b>Any previous experience in the chosen field</b></label>
+                           <input type="text" placeholder="Prior experience" name="experience" id="experience">
+                    </div><br>
+
+                    <div class='col-auto mt-2' style="text-align: center;" >
+                        <button class="button button-rounded button-xlarge shadow nott ls0 ml-0 mt-5" type="submit" value="Volunteer">SUBMIT</button>
+                    </div>
+
+      </form>
+    </div>
+    </div>
+</div>
+
+{% endblock content %}
