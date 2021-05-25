@@ -10,7 +10,9 @@ urlpatterns = [
     path('blog/',views.blog,name="blog"),
     path('mission/',views.mission,name="mission"),
     path('workshops/',views.workshop,name="workshop"),
+    path('contact/',views.contact,name="contact"),
+    path('founders/',views.founders,name="founders")
+
     
-    path('contact/',views.contact,name="contact")
 ]
     # path("login/",LoginView.as_view(),name="login")
