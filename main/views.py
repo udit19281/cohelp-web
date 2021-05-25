@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.core.mail import send_mail
 from decouple import config
-
+from .models import *
 
 def index(request):
     return render(request,"home.html")
@@ -94,5 +94,22 @@ def form(request,name):
 
 
         
-        
+def showresource(request):
+    content=AddResource.objects.exclude(name="NA")
+    context={
+        'content':content
+    }
+    return render(request,"resource.html",context=context)
 
+
+def resourcetable(request,id):
+    tablename=AddResource.objects.get(id=id)
+    gettable=ResourceTable.objects.filter(resource_name=tablename)
+    gettable=gettable.exclude(status="Pending")
+    
+    print(gettable)
+    context={
+        "name":tablename,
+        "content":gettable
+    }
+    return render(request,"resourcetable.html",context=context)
