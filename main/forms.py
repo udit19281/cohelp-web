@@ -8,8 +8,6 @@ class plasmaxchangeForm(ModelForm):
         model = PlasmaXchange
         fields='__all__'
         exclude=('status',)
-    
-
 
 class RequestedResourceForm(ModelForm):
 
