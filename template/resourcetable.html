@@ -2,11 +2,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'table/style/tablefilter.css' %}">
 <link rel="stylesheet" href="{% static 'table/style/themes/transparent/transparent.css' %}"> {%endblock style%} {% block content %}
-<div class="container my-5">
-    <h1>{{name}} Resources</h1>
+<div class="container my-5" style="max-width: 100%;">
+    <hr>
+    <div style="text-align: center;">    
+        <h1 style="font-family: monospace; color: maroon; ">{{name}} Resources</h1>
+    </div>
+    <hr>    
     <div class="row">
         <div class="panel panel-primary filterable">
-            <table id="demo" class=" table table-borderless mb-5 mt-5 table-responsive-lg">
+            <table id="demo" class=" table table-borderless mb-5 mt-5 table-responsive-lg" >
                 <thead>
                     <tr class="filters">
                         <th scope="col">
@@ -36,7 +40,7 @@
                         <th scope="col">
                             Last Update
                         </th>
-                        <th scope="col">
+                        <th scope="col" style="min-width: 29rem;">
                             Description
                         </th>
                     </tr>

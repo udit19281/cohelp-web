@@ -3,6 +3,10 @@
 
 {% block title %}Dashboard{% endblock title%}
 
+{% block style %}
+
+{%endblock style%}
+
 {% block content %}
 
 {% if messages %}
@@ -13,18 +17,35 @@
       </ul>
 {% endif %}
 
-<h1>Welcome, {{user.username}}</h1>
-<div class="Content mb-5" style="text-align: center;">
-<form method="get" action="/form/resources/">
-  {% csrf_token %}
-  <button class="btn btn-primary" type="submit">Resource Request Form</button>
-</form>
-
-<form method="get" action="/form/plasmaxchange/">
-  {% csrf_token %}
-  <button class="btn btn-primary" type="submit">Plasma X Change form</button>
-</form>
+<div style="text-align: center;">
+  <h1>Welcome, {{user.username}}!</h1>
 </div>
+<hr>
+<div class="Content mb-5" style="text-align: center;">
+
+<table  style="position: relative; margin: 0 32%;">
+  <tr>
+  <th>Resource</th>
+  <th>Plasma</th>
+  </tr>
+
+  <tr>
+  <td>
+  <form method="get" action="/form/resources/">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Resource Request Form</button>
+  </form>
+  </td>
+  <td>
+  <form method ="get" action="/form/plasmaxchange/">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Plasma X Change form</button>
+  </form>
+</td>
+</tr>
+</table>  
+</div>
+<hr>
 {%if text%}
 <h1>{{text}}</h1>
 {% endif %}
