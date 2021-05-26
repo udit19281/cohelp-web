@@ -11,6 +11,7 @@ from django.shortcuts import redirect, render
 from django.core.mail import send_mail
 from decouple import config
 from .models import *
+from django.core.paginator import Paginator
 
 def index(request):
     return render(request,"home.html")
@@ -129,6 +130,9 @@ def resourcetable(request,id):
     tablename=AddResource.objects.get(id=id)
     gettable=ResourceTable.objects.filter(resource_name=tablename)
     gettable=gettable.exclude(status="Pending")
+    paginator=Paginator(gettable,6)
+    pagenum=request.GET.get('page')
+    gettable=Paginator.get_page(paginator,pagenum)
     context={
         "name":tablename,
         "content":gettable

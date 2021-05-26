@@ -10,7 +10,7 @@
     <hr>    
     <div class="row">
         <div class="panel panel-primary filterable">
-            <table id="demo" class=" table table-borderless mb-5 mt-5 table-responsive-lg" >
+            <table id="demo" class=" table table-borderless table-responsive-lg" >
                 <thead>
                     <tr class="filters">
                         <th scope="col">
@@ -71,7 +71,7 @@
     </div>
 
 
-    <table class="table table-borderless mb-5 mt-5 table-responsive-lg" style="display: none;">
+    <table class="table table-borderless table-responsive-lg" style="display: none;">
         <thead class="table-dark">
             <th scope="col">
                 S.No
@@ -124,6 +124,25 @@
         {% endfor %}
     </table>
 </div>
+
+
+<div class="pagination-container">
+    <div class="">
+      Showing page {{gettable.number}} of {{ gettable.paginator.num_pages }}
+    </div>
+    <ul class="pagination align-right float-right mr-auto">
+      {% if gettable.has_previous %}
+      <li {% if gettable.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1">&laquo; 1</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ gettable.previous_page_number }}">Previous</a></li>
+      {% endif %}
+
+      {% if gettable.has_next %}
+      <li class="page-item"> <a class="page-link" href="?page={{ gettable.next_page_number }}">Next</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ gettable.paginator.num_pages }}">{{ gettable.paginator.num_pages}} &raquo;</a></li>
+      {% endif %}
+      </ul>
+
+  </div>
 {% endblock content %} {% block lastscript %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
