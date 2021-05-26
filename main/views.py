@@ -130,7 +130,7 @@ def resourcetable(request,id):
     tablename=AddResource.objects.get(id=id)
     gettable=ResourceTable.objects.filter(resource_name=tablename)
     gettable=gettable.exclude(status="Pending")
-    paginator=Paginator(gettable,6)
+    paginator=Paginator(gettable,50)
     pagenum=request.GET.get('page')
     gettable=Paginator.get_page(paginator,pagenum)
     context={
