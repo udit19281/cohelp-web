@@ -127,19 +127,18 @@
 </div>
 
 
-<div class="pagination-container">
+<div class="pagination-container" style="margin: 0rem 20% 5rem 20%;">
     <div class="">
-      Showing page {{gettable.number}} of {{ gettable.paginator.num_pages }}
+      <h4 style="color: #0C6EFD; margin-right: 1rem;"> Page {{content.number}} of {{ content.paginator.num_pages }} </h4>
     </div>
-    <ul class="pagination align-right float-right mr-auto">
-      {% if gettable.has_previous %}
-      <li {% if gettable.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1">&laquo; 1</a></li>
-      <li class="page-item"> <a class="page-link" href="?page={{ gettable.previous_page_number }}">Previous</a></li>
+    <ul class="pagination align-right float-right mr-auto pagination-lg" style="margin-top: -3.5rem;">
+      {% if content.has_previous %}
+      <li {% if content.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1">&laquo; 1</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ content.previous_page_number }}">Previous</a></li>
       {% endif %}
-
-      {% if gettable.has_next %}
-      <li class="page-item"> <a class="page-link" href="?page={{ gettable.next_page_number }}">Next</a></li>
-      <li class="page-item"> <a class="page-link" href="?page={{ gettable.paginator.num_pages }}">{{ gettable.paginator.num_pages}} &raquo;</a></li>
+      {% if content.has_next %}
+      <li class="page-item"> <a class="page-link" href="?page={{ content.next_page_number }}">Next</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ content.paginator.num_pages }}">{{ content.paginator.num_pages}} &raquo;</a></li>
       {% endif %}
       </ul>
 
