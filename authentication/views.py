@@ -15,6 +15,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.urls.base import reverse
+from main.models import Profile
 # Create your views here.
 User=get_user_model()
 
@@ -34,8 +35,11 @@ def signup(request):
         phonenumber="+91"+phonenumber
         if not User.objects.filter(username=username).exists():
             if not User.objects.filter(email=email).exists():
-                user=User.objects.create_user(username=username,email=email, password=password,phonenumber=phonenumber)
+                user=User.objects.create_user(username=username,email=email, password=password)
                 user.is_active=False
+                profile=Profile.objects.create(user=user)
+                profile.number=phonenumber
+                profile.save()
                 user.save()
                 #send verification mail
                 current_site=get_current_site(request)

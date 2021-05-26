@@ -1,5 +1,5 @@
 #from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -7,6 +7,12 @@ import datetime
 
 # Create your models here.
 
+class Profile(models.Model):
+   user=models.ForeignKey(to=User,on_delete=models.CASCADE)
+   number=models.CharField(max_length=13)
+
+   def __str__(self):
+      return self.user.username+"'s profile"
 
 cho_status2=[
       ('Pending', 'Pending'),
@@ -14,10 +20,6 @@ cho_status2=[
       ('Not Available','Not Available'),
       ('Ok','Ok'),
    ]
-
-class User(AbstractUser):
-   phonenumber = models.CharField(max_length=13,default="NA")
-   volunteer = models.BooleanField(default=False)
 
 User_obj=get_user_model()
 
