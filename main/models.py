@@ -56,8 +56,16 @@ class RequestedResource(models.Model):
    def __str__(self):
       return self.resource+" Requested By "+self.username+", status "+self.status
 
+class AddResource(models.Model):       #For admin only
+   name= models.CharField(max_length=255,default="NA")
+   description=models.TextField(max_length=255,default="NA")
+   image_url=models.TextField(max_length=255,default="NA")
+   
+   def __str__(self):
+      return self.name
 class ResourceTable(models.Model):
-   resource_name = models.CharField(max_length=255,default="NA")
+   resource_name=models.ForeignKey(AddResource, on_delete=models.CASCADE)
+   # resource_name = models.CharField(max_length=255,default="NA")
    org_name = models.CharField(max_length=255,default="NA")
    number=models.CharField(max_length=25,default="NA")
    address = models.CharField(max_length=255,default="NA")
@@ -70,17 +78,11 @@ class ResourceTable(models.Model):
    description=models.TextField(max_length=555,default="NA")
 
    def __str__(self):
-      return self.resource_name+" by "+self.org_name
+      return self.resource_name.name+" by "+self.org_name
 
 
    class Meta:
       ordering = ('-created_on','-last_updated')
 
 
-class AddResource(models.Model):       #For admin only
-   name= models.CharField(max_length=255,default="NA")
-   description=models.TextField(max_length=255,default="NA")
-   image_url=models.TextField(max_length=255,default="NA")
 
-   def __str__(self):
-      return self.name
