@@ -59,7 +59,6 @@ def dashboard(request):
     user=request.user
     request_res=RequestedResource.objects.filter(username=user)
     request_plasma=PlasmaXchange.objects.filter(username=user)
-    print(not request_plasma,not request_res)
     if request_plasma and request_plasma:
         context={
             'resource':request_res,
@@ -77,7 +76,6 @@ def dashboard(request):
         context={
             'text':'Requested forms will be shown here'
         }
-    print(context)
     return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
