@@ -56,11 +56,32 @@ def contact(request):
 
 @login_required(login_url="authentication:login")
 def dashboard(request):
-    return render(request,"dashboard.html")
+    user=request.user
+    request_res=RequestedResource.objects.filter(username=user)
+    request_plasma=PlasmaXchange.objects.filter(username=user)
+    print(not request_plasma,not request_res)
+    if request_plasma and request_plasma:
+        context={
+            'resource':request_res,
+             'plasma':request_plasma,
+        }
+    elif request_plasma:
+        context={
+             'plasma':request_plasma,
+        }
+    elif request_res:
+        context={
+            'resource':request_res,
+        }
+    else:
+        context={
+            'text':'Requested forms will be shown here'
+        }
+    print(context)
+    return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
 def form(request,name):
-    print(request.method)
     if request.method =='GET':
         if(name=="resources"):
             form = RequestedResourceForm()
@@ -78,6 +99,8 @@ def form(request,name):
         if(name=="resources"):
            form=RequestedResourceForm(request.POST)
            if form.is_valid():
+                data=form.save(commit=False)
+                data.username=request.user
                 form.save()
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
@@ -85,6 +108,8 @@ def form(request,name):
         if(name=="plasmaxchange"):
            form=plasmaxchangeForm(request.POST)
            if form.is_valid():
+                data=form.save(commit=False)
+                data.username=request.user
                 form.save()
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
@@ -106,8 +131,6 @@ def resourcetable(request,id):
     tablename=AddResource.objects.get(id=id)
     gettable=ResourceTable.objects.filter(resource_name=tablename)
     gettable=gettable.exclude(status="Pending")
-    
-    print(gettable)
     context={
         "name":tablename,
         "content":gettable

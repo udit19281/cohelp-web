@@ -14,7 +14,6 @@
 {% endif %}
 
 <h1>Welcome, {{user.username}}</h1>
-{%if user.is_authenticated %}
 <div class="Content mb-5" style="text-align: center;">
 <form method="get" action="/form/resources/">
   {% csrf_token %}
@@ -23,10 +22,63 @@
 
 <form method="get" action="/form/plasmaxchange/">
   {% csrf_token %}
-  <button class="btn btn-primary" type="submit">Plasmax change form</button>
+  <button class="btn btn-primary" type="submit">Plasma X Change form</button>
 </form>
 </div>
-{% else %}
-<h1>Not</h1>
+{%if text%}
+<h1>{{text}}</h1>
+{% endif %}
+{%if resource%}
+<!-- Requested Resource details -->
+<div class="container">
+  <h1>Requested Resource Form Status</h1>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Resource</th>
+      <th scope="col">Status</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in resource %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.resource}}</td>
+      <td>{{i.status}}</td>
+      <td>{{i.description}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+{% endif %}
+{%if plasma%}
+<!-- Plasmaxechange details -->
+<div class="container">
+  <h1>Plasmaexchange Form Status</h1>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">Sno</th>
+        <th scope="col">Patient Name </th>
+        <th scope="col">Donor Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in plasma%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.Patient_Name}}</td>
+        <td>{{i.Donor_Name}}</td>
+        <td>{{i.status}}</td>
+      </tr>
+      {%endfor%}
+      <tr>
+    </tbody>
+  </table>
+  </div>
 {% endif %}
 {% endblock content %}
