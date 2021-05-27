@@ -16,6 +16,9 @@ from django.core.paginator import Paginator
 def index(request):
     return render(request,"home.html")
 
+def communityKitchen(request):
+    return render(request,"community.html")
+
 def blog(request):
     return render(request,"blog.html")
 

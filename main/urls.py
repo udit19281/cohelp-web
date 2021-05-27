@@ -14,7 +14,8 @@ urlpatterns = [
     path('founders/',views.founders,name="founders"),
     path('volunteer/',views.volunteer,name="volunteer"),
      path('resource/',views.showresource,name="showresource"),
-     path('resource/',views.backToSchool,name="backToSchool"),
+    #  path('resource/',views.backToSchool,name="backToSchool"),
+     path('communityKitchen/',views.communityKitchen,name="communityKitchen"),
     path('resource/<int:id>/',views.resourcetable,name="resourcetable"),
 ]
     # path("login/",LoginView.as_view(),name="login")
