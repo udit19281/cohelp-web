@@ -14,7 +14,7 @@ class RequestedResourceForm(ModelForm):
     class Meta:
         model=RequestedResource
         fields='__all__'
-        exclude=('status',)
+        exclude=('status','reply')
         # widgets=forms.Select(attrs={'class': 'form-control',})
 
 class contactform(forms.Form):

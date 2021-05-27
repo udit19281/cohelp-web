@@ -2,7 +2,7 @@ from django.contrib import admin
 from main.models import *
 # Register your models here.
 
-admin.site.site_header = 'Administration Tool Dashboard'
+admin.site.site_header = 'Administration Tool'
 
 class resourcetable(admin.ModelAdmin):
     list_display=[field.name for field in ResourceTable._meta.get_fields()]
