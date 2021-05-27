@@ -29,7 +29,28 @@ def founders(request):
     return render(request,"founders.html")
 
 def volunteer(request):
-    return render(request,"volunteer.html")
+    form = volunteerRequestForm()
+    if request.method == "POST":
+        form = volunteerRequestForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            contact = form.cleaned_data["contact"]
+            type = form.cleaned_data["type"]
+            experience = form.cleaned_data["experience"]
+            if name != "" and type != "" and contact.isnumeric():
+                subject = "New Volunteer request from " + name
+                body = "Here is the job yoy applied for \n" + type + "\n" + "Contact: " + contact + "\n" + "Experience: " + experience
+                print(body)
+                hostuser = config('EMAIL_HOST_USER')
+                sendto = config('EMAIL_REC')
+                print(sendto, hostuser)
+                send_mail(subject, body, hostuser, [sendto], fail_silently=False, )
+                messages.success(request, "Your request has been sent successfully!")
+                return render(request, "home.html")
+        messages.error(request, "Please enter correct input")
+        return render(request, "home.html")
+    else:
+        return render(request, "volunteer.html", context={"form": form})
 
 def contact(request):
     form=contactform()
