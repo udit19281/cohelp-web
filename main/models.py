@@ -69,6 +69,16 @@ class AddResource(models.Model):       #For admin only
    def __str__(self):
       return self.name
 
+
+class VolunteerRequest(models.Model):
+   name = models.CharField(max_length=255, default="NA")
+   contact = models.CharField(max_length=50, default="NA")
+   type = models.CharField(max_length=50, default="NA")
+   experience = models.TextField(max_length=255,default="NA")
+
+   def __str__(self):
+      return self.name
+
 class ResourceTable(models.Model):
    resource_name=models.ForeignKey(AddResource, on_delete=models.CASCADE)
    # resource_name = models.CharField(max_length=255,default="NA")
