@@ -29,6 +29,8 @@ def founders(request):
 
 def volunteer(request):
     return render(request,"volunteer.html")
+def backToSchool(request):
+    return render(request,"backToSchool.html")
 
 def contact(request):
     form=contactform()
