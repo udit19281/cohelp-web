@@ -3,6 +3,10 @@
 
 {% block title %}Dashboard{% endblock title%}
 
+{% block style %}
+
+{%endblock style%}
+
 {% block content %}
 
 {% if messages %}
@@ -13,20 +17,90 @@
       </ul>
 {% endif %}
 
-<h1>Welcome, {{user.username}}</h1>
-{%if user.is_authenticated %}
-<div class="Content mb-5" style="text-align: center;">
-<form method="get" action="/form/resources/">
-  {% csrf_token %}
-  <button class="btn btn-primary" type="submit">Resource Request Form</button>
-</form>
-
-<form method="get" action="/form/plasmaxchange/">
-  {% csrf_token %}
-  <button class="btn btn-primary" type="submit">Plasmax change form</button>
-</form>
+<div style="text-align: center;">
+  <h1>Welcome, {{user.username}}!</h1>
 </div>
-{% else %}
-<h1>Not</h1>
+<hr>
+<div class="Content mb-5" style="text-align: center;">
+
+<table  style="position: relative; margin: 0 32%;">
+  <tr>
+  <th style="font-size: 1.5rem;">Resource</th>
+  <th style="font-size: 1.5rem;">Plasma</th>
+  </tr>
+
+  <tr>
+  <td>
+  <form method="get" action="/form/resources/">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Resource Request Form</button>
+  </form>
+  </td>
+  <td>
+  <form method ="get" action="/form/plasmaxchange/">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Plasma X Change form</button>
+  </form>
+</td>
+</tr>
+</table>  
+</div>
+<hr>
+{%if text%}
+<h1>{{text}}</h1>
+{% endif %}
+{%if resource%}
+<!-- Requested Resource details -->
+<div class="container">
+  <h2 style="color: maroon">Requested Resource Form Status</h2>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Resource</th>
+      <th scope="col">Status</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in resource %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.resource}}</td>
+      <td>{{i.status}}</td>
+      <td>{{i.description}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+{% endif %}
+{%if plasma%}
+<!-- Plasmaxechange details -->
+<div class="container">
+  <hr>
+  <h2 style="color: maroon">Plasmaexchange Form Status</h2>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">Sno</th>
+        <th scope="col">Patient Name </th>
+        <th scope="col">Donor Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in plasma%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.Patient_Name}}</td>
+        <td>{{i.Donor_Name}}</td>
+        <td>{{i.status}}</td>
+      </tr>
+      {%endfor%}
+      <tr>
+    </tbody>
+  </table>
+  </div>
 {% endif %}
 {% endblock content %}

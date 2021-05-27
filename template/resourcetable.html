@@ -2,11 +2,16 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'table/style/tablefilter.css' %}">
 <link rel="stylesheet" href="{% static 'table/style/themes/transparent/transparent.css' %}"> {%endblock style%} {% block content %}
-<div class="container my-5">
-    <h1>{{name}} Resources</h1>
+<div class="container my-5" style="max-width: 100%;">
+    <hr>
+    <div style="text-align: center;">    
+        <h1 style="font-family: monospace; color: maroon; ">{{name}} Resources</h1>
+    </div>
+    <hr>
+    <br>    
     <div class="row">
         <div class="panel panel-primary filterable">
-            <table id="demo" class=" table table-borderless mb-5 mt-5 table-responsive-lg">
+            <table id="demo" class=" table table-borderless table-responsive-lg" >
                 <thead>
                     <tr class="filters">
                         <th scope="col">
@@ -36,7 +41,7 @@
                         <th scope="col">
                             Last Update
                         </th>
-                        <th scope="col">
+                        <th scope="col" style="min-width: 29rem;">
                             Description
                         </th>
                     </tr>
@@ -67,7 +72,7 @@
     </div>
 
 
-    <table class="table table-borderless mb-5 mt-5 table-responsive-lg" style="display: none;">
+    <table class="table table-borderless table-responsive-lg" style="display: none;">
         <thead class="table-dark">
             <th scope="col">
                 S.No
@@ -120,6 +125,24 @@
         {% endfor %}
     </table>
 </div>
+
+
+<div class="pagination-container" style="margin: 0rem 20% 5rem 20%;">
+    <div class="">
+      <h4 style="color: #0C6EFD; margin-right: 1rem;"> Page {{content.number}} of {{ content.paginator.num_pages }} </h4>
+    </div>
+    <ul class="pagination align-right float-right mr-auto pagination-lg" style="margin-top: -3.5rem;">
+      {% if content.has_previous %}
+      <li {% if content.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1">&laquo; 1</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ content.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      {% if content.has_next %}
+      <li class="page-item"> <a class="page-link" href="?page={{ content.next_page_number }}">Next</a></li>
+      <li class="page-item"> <a class="page-link" href="?page={{ content.paginator.num_pages }}">{{ content.paginator.num_pages}} &raquo;</a></li>
+      {% endif %}
+      </ul>
+
+  </div>
 {% endblock content %} {% block lastscript %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 

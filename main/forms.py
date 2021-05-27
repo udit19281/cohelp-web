@@ -1,5 +1,5 @@
 from django import forms
-from .models import PlasmaXchange,RequestedResource
+from .models import PlasmaXchange, RequestedResource, VolunteerRequest
 from django.forms.models import ModelForm
 from django.forms.widgets import Textarea
 
@@ -9,13 +9,17 @@ class plasmaxchangeForm(ModelForm):
         fields='__all__'
         exclude=('status',)
 
+class volunteerRequest(ModelForm):
+    class Meta:
+        model = VolunteerRequest
+        fields='__all__'
 
 class RequestedResourceForm(ModelForm):
 
     class Meta:
         model=RequestedResource
         fields='__all__'
-        exclude=('status',)
+        exclude=('status','reply')
         # widgets=forms.Select(attrs={'class': 'form-control',})
 
 class contactform(forms.Form):

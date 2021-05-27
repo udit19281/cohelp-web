@@ -11,6 +11,7 @@ from django.shortcuts import redirect, render
 from django.core.mail import send_mail
 from decouple import config
 from .models import *
+from django.core.paginator import Paginator
 
 def index(request):
     return render(request,"home.html")
@@ -28,9 +29,28 @@ def founders(request):
     return render(request,"founders.html")
 
 def volunteer(request):
-    return render(request,"volunteer.html")
-def backToSchool(request):
-    return render(request,"backToSchool.html")
+    form = volunteerRequestForm()
+    if request.method == "POST":
+        form = volunteerRequestForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            contact = form.cleaned_data["contact"]
+            type = form.cleaned_data["type"]
+            experience = form.cleaned_data["experience"]
+            if name != "" and type != "" and contact.isnumeric():
+                subject = "New Volunteer request from " + name
+                body = "Here is the job yoy applied for \n" + type + "\n" + "Contact: " + contact + "\n" + "Experience: " + experience
+                print(body)
+                hostuser = config('EMAIL_HOST_USER')
+                sendto = config('EMAIL_REC')
+                print(sendto, hostuser)
+                send_mail(subject, body, hostuser, [sendto], fail_silently=False, )
+                messages.success(request, "Your request has been sent successfully!")
+                return render(request, "home.html")
+        messages.error(request, "Please enter correct input")
+        return render(request, "home.html")
+    else:
+        return render(request, "volunteer.html", context={"form": form})
 
 def contact(request):
     form=contactform()
@@ -58,11 +78,30 @@ def contact(request):
 
 @login_required(login_url="authentication:login")
 def dashboard(request):
-    return render(request,"dashboard.html")
+    user=request.user
+    request_res=RequestedResource.objects.filter(username=user)
+    request_plasma=PlasmaXchange.objects.filter(username=user)
+    if request_plasma and request_plasma:
+        context={
+            'resource':request_res,
+             'plasma':request_plasma,
+        }
+    elif request_plasma:
+        context={
+             'plasma':request_plasma,
+        }
+    elif request_res:
+        context={
+            'resource':request_res,
+        }
+    else:
+        context={
+            'text':'Requested forms will be shown here'
+        }
+    return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
 def form(request,name):
-    print(request.method)
     if request.method =='GET':
         if(name=="resources"):
             form = RequestedResourceForm()
@@ -80,6 +119,8 @@ def form(request,name):
         if(name=="resources"):
            form=RequestedResourceForm(request.POST)
            if form.is_valid():
+                data=form.save(commit=False)
+                data.username=request.user
                 form.save()
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
@@ -87,6 +128,8 @@ def form(request,name):
         if(name=="plasmaxchange"):
            form=plasmaxchangeForm(request.POST)
            if form.is_valid():
+                data=form.save(commit=False)
+                data.username=request.user
                 form.save()
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
@@ -108,8 +151,9 @@ def resourcetable(request,id):
     tablename=AddResource.objects.get(id=id)
     gettable=ResourceTable.objects.filter(resource_name=tablename)
     gettable=gettable.exclude(status="Pending")
-    
-    print(gettable)
+    paginator=Paginator(gettable,50)
+    pagenum=request.GET.get('page')
+    gettable=Paginator.get_page(paginator,pagenum)
     context={
         "name":tablename,
         "content":gettable

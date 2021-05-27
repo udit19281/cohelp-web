@@ -1,12 +1,21 @@
 #from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth import get_user_model
 from django.db import models
 import datetime
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from django.core.mail import send_mail
 
 # Create your models here.
 
+class Profile(models.Model):
+   user=models.ForeignKey(to=User,on_delete=models.CASCADE)
+   number=models.CharField(max_length=13)
+
+   def __str__(self):
+      return self.user.username+"'s profile"
 
 cho_status2=[
       ('Pending', 'Pending'),
@@ -15,46 +24,42 @@ cho_status2=[
       ('Ok','Ok'),
    ]
 
-class User(AbstractUser):
-   phonenumber = models.CharField(max_length=13,default="NA")
-   volunteer = models.BooleanField(default=False)
-
 User_obj=get_user_model()
 
 class PlasmaXchange(models.Model):
-   userename= models.CharField(max_length=255,default="NA") #exclude in form
-   PatientName = models.CharField(max_length=500,name="Patient Name")
-   PatientAge = models.IntegerField(name="Patient Age")
-   PatientBloodGroup = models.CharField(max_length=3,name="Patient Blood Group")
-   PatientContact = models.IntegerField(name="Patient Contact")
-   PatientAddress = models.CharField(max_length=200,name="Patient Address")
+   username= models.CharField(max_length=255,default="NA") #exclude in form
+   Patient_Name = models.CharField(max_length=500)
+   Patient_Age = models.IntegerField()
+   Patient_Blood_Group = models.CharField(max_length=3)
+   Patient_Contact = models.IntegerField()
+   Patient_Address = models.CharField(max_length=200)
    # donor fiels
-   DonorName = models.CharField(max_length=50,name="Donor Name")
-   DonorAge = models.IntegerField(name="Donor Age")
-   DonorBloodGroup = models.CharField(max_length=3,name="Donor Blood Group")
-   DonorContact = models.IntegerField(name="Donor Contact")
-   DonorAddress = models.CharField(max_length=200,name="Donor Address")
+   Donor_Name = models.CharField(max_length=50)
+   Donor_Age = models.IntegerField()
+   Donor_Blood_Group = models.CharField(max_length=3)
+   Donor_Contact = models.IntegerField()
+   Donor_Address = models.CharField(max_length=200)
    status=models.CharField(choices=cho_status2,default="Pending",max_length=50)
    
    class Meta:
       db_table = "Plasmaxchange"
 
    def __str__(self):
-      return "Applicant "+self.username +", status "+self.status
+      return "Applicant "+self.username +", status "+self.status+",donar: "+self.Donor_Name
 
 
 class RequestedResource(models.Model):
    username=models.CharField(max_length =50) #exclude in form
-   resource = models.CharField(max_length=50,default="NA")
+   resource = models.ForeignKey('AddResource', on_delete=models.CASCADE)
    number = models.CharField(max_length =50,default="NA")
    description = models.CharField(max_length=255,default="NA")
    status=models.CharField(choices=cho_status2,default="Pending",max_length=50)  #exclude in form
-
+   reply=models.CharField(max_length=255,default="") #volunteer reply to be sent
    class Meta:
       db_table = "RequestedResource"
 
    def __str__(self):
-      return self.resource+" Requested By "+self.username+", status "+self.status
+      return self.resource.name+" Requested By "+self.username+", status "+self.status
 
 class AddResource(models.Model):       #For admin only
    name= models.CharField(max_length=255,default="NA")
@@ -63,6 +68,17 @@ class AddResource(models.Model):       #For admin only
    
    def __str__(self):
       return self.name
+
+
+class VolunteerRequest(models.Model):
+   name = models.CharField(max_length=255, default="NA")
+   contact = models.CharField(max_length=50, default="NA")
+   type = models.CharField(max_length=50, default="NA")
+   experience = models.TextField(max_length=255,default="NA")
+
+   def __str__(self):
+      return self.name
+
 class ResourceTable(models.Model):
    resource_name=models.ForeignKey(AddResource, on_delete=models.CASCADE)
    # resource_name = models.CharField(max_length=255,default="NA")
@@ -85,4 +101,16 @@ class ResourceTable(models.Model):
       ordering = ('-created_on','-last_updated')
 
 
+# Signals
 
+@receiver(post_save,sender=RequestedResource)
+def send_mail_user_status_update(sender,instance,created,*args,**kwargs):
+
+   if instance.status!='Pending':
+      if User.objects.filter(username=instance.username).exists():
+         user=User.objects.get(username=instance.username)
+         email=user.email
+         subject="Status Update on Mango"
+         body="Hello, "+str(user.username)+"\nYour Request Status has been updated \n"+"Status: "+instance.status+"\n"+"reply: "+str(instance.reply)
+         send_mail(subject,body,'noreply@uditorg.com', [email],fail_silently=False,)
+         print("email sent")
