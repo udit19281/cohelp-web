@@ -9,10 +9,10 @@ class plasmaxchangeForm(ModelForm):
         fields='__all__'
         exclude=('status',)
 
-class volunteerRequest(ModelForm):
-    class Meta:
-        model = VolunteerRequest
-        fields='__all__'
+# class volunteerRequestForm(ModelForm):
+#     class Meta:
+#         model = VolunteerRequest
+#         fields='__all__'
 
 class RequestedResourceForm(ModelForm):
 
