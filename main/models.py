@@ -71,13 +71,14 @@ class AddResource(models.Model):       #For admin only
 
 
 class VolunteerRequest(models.Model):
-   name = models.CharField(max_length=255, default="NA")
-   contact = models.CharField(max_length=50, default="NA")
-   type = models.CharField(max_length=50, default="NA")
+   username = models.CharField(max_length=255, default="NA")
+   number = models.CharField(max_length=50, default="NA")
+   roll = models.CharField(max_length=50, default="NA")
    experience = models.TextField(max_length=255,default="NA")
-
+   status = models.CharField(choices=cho_status2,default="Pending",max_length=50)  #exclude in form
+   reply=models.CharField(max_length=255,default="NA")
    def __str__(self):
-      return self.name
+      return self.username
 
 class ResourceTable(models.Model):
    resource_name=models.ForeignKey(AddResource, on_delete=models.CASCADE)
@@ -114,3 +115,15 @@ def send_mail_user_status_update(sender,instance,created,*args,**kwargs):
          body="Hello, "+str(user.username)+"\nYour Request Status has been updated \n"+"Status: "+instance.status+"\n"+"reply: "+str(instance.reply)
          send_mail(subject,body,'noreply@uditorg.com', [email],fail_silently=False,)
          print("email sent")
+
+@receiver(post_save,sender=VolunteerRequest)
+def send_mail_user_status_update(sender,instance,created,*args,**kwargs):
+
+   if instance.status!='Pending':
+      if User.objects.filter(username=instance.username).exists():
+         user=User.objects.get(username=instance.username)
+         email=user.email
+         subject="Volunteer Status Update on Mango"
+         body="Hello, "+str(user.username)+"\nYour Volunteer request Status has been updated \n"+"Status: "+instance.status+"\n"+"reply: "+str(instance.reply)
+         send_mail(subject,body,'noreply@uditorg.com', [email],fail_silently=False,)
+         print("Volunteer email sent")

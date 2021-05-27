@@ -27,16 +27,16 @@
     <div class="containerf col-auto mt-5 mb-10" style="background: #FFF url({% static 'temp/demos/nonprofit/images/slider/volunteer.png' %}) no-repeat 40% 100% / auto 70%">
           <div class="login">
               <h1>Volunteer form</h1>
-                <form method="POST" id="volunteer" action="/form/{{ formname }}/" class="" style="display: inline-block;">
-
+                <form method="POST" id="volunteer" action="{% url 'main:volunteer' %}" class="" style="display: inline-block;">
+                    {% csrf_token %}
                     <div class='col-auto mt-2' style="margin-left: 2px">
                         <label for="Name"><b>Name</b></label><br>
-                        <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
+                        <input type="text" placeholder="Enter username" name="username" id="Name" required>
                     </div><br>
 
                     <div class='col-auto mt-2' style="margin-left: 2px">
                         <label for="contact"><b>Contact Number</b></label><br>
-                        <input type="tel" placeholder="Enter mobile number" name="contact" id="contact" required pattern="[0-9]{10}">
+                        <input type="tel" placeholder="10-digit number" name="contact" id="contact" required pattern="[0-9]{10}" maxlength="10">
                     </div><br>
 
                     <div class='col-auto mt-2' >
