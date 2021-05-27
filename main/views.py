@@ -33,19 +33,21 @@ def workshop(request):
 def founders(request):
     return render(request,"founders.html")
 
+@login_required(login_url="authentication:login")
 def volunteer(request):
     if request.method == 'POST':
-        if request.POST.get('Name') and request.POST.get('contact'):
-            form = VolunteerRequest()
-            form.name = request.POST.get('Name')
-            form.contact = request.POST.get('contact')
-            if request.POST.get('experience'):
-                form.experience = request.POST.get('experience')
-            # if request.POST.get('type'):
-            #     form.type = request.POST.get('type')
-            form.save()
-        return render(request, "volunteer.html")
-
+        username = request.user.username
+        number = request.POST['contact']
+        roll=request.POST['field']
+        exp=request.POST['experience']
+        if number!='' and roll!='' and exp!='':
+            # print(username,number,roll,exp)
+            VolunteerRequest.objects.create(username=username,number=number,roll=roll,experience=exp)
+            messages.success(request,"Volunteer form has been sent successfully!!! ")
+            return redirect("main:home")
+        else:
+            messages.error(request,"Error!!!, Enter all fields")
+            return redirect("main:home")
     else:
         return render(request, "volunteer.html")
 
@@ -191,3 +193,5 @@ def exportdata(request,id):
         else:
             raise Http404()
         
+def backToScholl(request):
+    pass
