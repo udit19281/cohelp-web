@@ -33,6 +33,10 @@ def workshop(request):
 def founders(request):
     return render(request,"founders.html")
 
+def backToSchool(request):
+    return render(request,"backToSchool.html")
+
+
 @login_required(login_url="authentication:login")
 def volunteer(request):
     if request.method == 'POST':
