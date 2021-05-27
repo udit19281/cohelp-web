@@ -5,6 +5,8 @@ from django.db import IntegrityError
 from django.urls import reverse
 from django.contrib import messages
 from .forms import *
+import csv
+from django.http import Http404
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
@@ -32,28 +34,20 @@ def founders(request):
     return render(request,"founders.html")
 
 def volunteer(request):
-    form = volunteerRequestForm()
-    if request.method == "POST":
-        form = volunteerRequestForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data["name"]
-            contact = form.cleaned_data["contact"]
-            type = form.cleaned_data["type"]
-            experience = form.cleaned_data["experience"]
-            if name != "" and type != "" and contact.isnumeric():
-                subject = "New Volunteer request from " + name
-                body = "Here is the job yoy applied for \n" + type + "\n" + "Contact: " + contact + "\n" + "Experience: " + experience
-                print(body)
-                hostuser = config('EMAIL_HOST_USER')
-                sendto = config('EMAIL_REC')
-                print(sendto, hostuser)
-                send_mail(subject, body, hostuser, [sendto], fail_silently=False, )
-                messages.success(request, "Your request has been sent successfully!")
-                return render(request, "home.html")
-        messages.error(request, "Please enter correct input")
-        return render(request, "home.html")
+    if request.method == 'POST':
+        if request.POST.get('Name') and request.POST.get('contact'):
+            form = VolunteerRequest()
+            form.name = request.POST.get('Name')
+            form.contact = request.POST.get('contact')
+            if request.POST.get('experience'):
+                form.experience = request.POST.get('experience')
+            # if request.POST.get('type'):
+            #     form.type = request.POST.get('type')
+            form.save()
+        return render(request, "volunteer.html")
+
     else:
-        return render(request, "volunteer.html", context={"form": form})
+        return render(request, "volunteer.html")
 
 def contact(request):
     form=contactform()
@@ -82,26 +76,34 @@ def contact(request):
 @login_required(login_url="authentication:login")
 def dashboard(request):
     user=request.user
-    request_res=RequestedResource.objects.filter(username=user)
-    request_plasma=PlasmaXchange.objects.filter(username=user)
-    if request_plasma and request_plasma:
-        context={
-            'resource':request_res,
-             'plasma':request_plasma,
-        }
-    elif request_plasma:
-        context={
-             'plasma':request_plasma,
-        }
-    elif request_res:
-        context={
-            'resource':request_res,
-        }
+    if user.is_staff and user.is_active:
+        if user.is_superuser:
+            context={"staff":True,"admin":True}
+        else:
+            context={'staff':True}
+        return render(request,"dashboard.html",context=context)
     else:
-        context={
-            'text':'Requested forms will be shown here'
-        }
-    return render(request,"dashboard.html",context=context)
+        request_res=RequestedResource.objects.filter(username=user)
+        request_plasma=PlasmaXchange.objects.filter(username=user)
+        if request_plasma and request_plasma:
+            context={
+                'resource':request_res,
+                'plasma':request_plasma,
+            }
+        elif request_plasma:
+            context={
+                'plasma':request_plasma,
+            }
+        elif request_res:
+            context={
+                'resource':request_res,
+            }
+        else:
+            context={
+                'text':'Requested forms will be shown here'
+            }
+        print(context)
+        return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
 def form(request,name):
@@ -162,3 +164,30 @@ def resourcetable(request,id):
         "content":gettable
     }
     return render(request,"resourcetable.html",context=context)
+
+
+@login_required(login_url="authentication:login")
+def exportdata(request,id):
+    if not request.user.is_superuser:
+        raise Http404()
+    else:
+        response =HttpResponse(content_type='text/csv')
+        if id==1:
+            response['Content-Disposition']='attachment; filename=Resource_Request'+str(datetime.datetime.now())+'.csv'
+            write=csv.writer(response)
+            write.writerow(['Username','Resource Requested','Contact Number','Status','Description','Comment'])
+            data=RequestedResource.objects.all()
+            for i in data:
+                write.writerow([i.username,i.resource,i.number,i.status,i.description,i.reply])
+            return response
+        if id==2:
+            response['Content-Disposition']='attachment; filename=Plasma_Request'+str(datetime.datetime.now())+'.csv'
+            write=csv.writer(response)
+            write.writerow(['Username','Patient Name','Patient Age','Status','Patient Blood Group','Patient Contact','Patient Address','Donor Name','Donor Age','Donor Blood Group','Donor Contact','Donor Address'])
+            data=PlasmaXchange.objects.all()
+            for i in data:
+                write.writerow([i.username,i.Patient_Name,i.Patient_Age,i.status,i.Patient_Blood_Group,i.Patient_Contact,i.Patient_Address,i.Donor_Name,i.Donor_Age,i.Donor_Blood_Group,i.Donor_Contact,i.Donor_Address])
+            return response
+        else:
+            raise Http404()
+        

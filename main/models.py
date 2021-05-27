@@ -31,13 +31,13 @@ class PlasmaXchange(models.Model):
    Patient_Name = models.CharField(max_length=500)
    Patient_Age = models.IntegerField()
    Patient_Blood_Group = models.CharField(max_length=3)
-   Patient_Contact = models.IntegerField()
+   Patient_Contact = models.CharField(max_length=15)
    Patient_Address = models.CharField(max_length=200)
    # donor fiels
    Donor_Name = models.CharField(max_length=50)
    Donor_Age = models.IntegerField()
    Donor_Blood_Group = models.CharField(max_length=3)
-   Donor_Contact = models.IntegerField()
+   Donor_Contact = models.CharField(max_length=15)
    Donor_Address = models.CharField(max_length=200)
    status=models.CharField(choices=cho_status2,default="Pending",max_length=50)
    
@@ -54,7 +54,7 @@ class RequestedResource(models.Model):
    number = models.CharField(max_length =50,default="NA")
    description = models.CharField(max_length=255,default="NA")
    status=models.CharField(choices=cho_status2,default="Pending",max_length=50)  #exclude in form
-   reply=models.CharField(max_length=255,default="") #volunteer reply to be sent
+   reply=models.CharField(max_length=255,null=True,blank=True) #volunteer reply to be sent
    class Meta:
       db_table = "RequestedResource"
 

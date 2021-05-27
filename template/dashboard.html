@@ -16,7 +16,21 @@
           {% endfor %}
       </ul>
 {% endif %}
+{% if staff%}
+<div style="text-align: center;">
+  <h1>Welcome Admin, {{user.username}}!</h1>
+</div>
+<div class="Content mb-5" style="text-align: center;">
+  <a href="/admin" class="btn btn-danger">Admin Tool</a>
 
+  <!-- Superuser Options here -->
+  {% if admin %}
+  <a href="/export/1" class="btn btn-success">Export Resource Request</a>
+  <a href="/export/2" class="btn btn-success">Export Plasma Request</a>
+  {% endif %}
+</div>
+{% endif %}
+{% if not staff %}
 <div style="text-align: center;">
   <h1>Welcome, {{user.username}}!</h1>
 </div>
@@ -46,9 +60,11 @@
 </table>  
 </div>
 <hr>
+
 {%if text%}
 <h1>{{text}}</h1>
 {% endif %}
+
 {%if resource%}
 <!-- Requested Resource details -->
 <div class="container">
@@ -75,6 +91,7 @@
 </table>
 </div>
 {% endif %}
+
 {%if plasma%}
 <!-- Plasmaxechange details -->
 <div class="container">
@@ -102,5 +119,6 @@
     </tbody>
   </table>
   </div>
+{% endif %}
 {% endif %}
 {% endblock content %}
