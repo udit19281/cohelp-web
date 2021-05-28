@@ -80,6 +80,16 @@ class VolunteerRequest(models.Model):
    def __str__(self):
       return self.username
 
+class NewCollaboratorRequest(models.Model):
+   username = models.CharField(max_length=255, default="NA")
+   number = models.CharField(max_length=50, default="NA")
+   reason = models.TextField(max_length=255, default="NA")
+   experience = models.TextField(max_length=255,default="NA")
+   status = models.CharField(choices=cho_status2,default="Pending",max_length=50)  #exclude in form
+   reply=models.CharField(max_length=255,default="NA")
+   def __str__(self):
+      return self.username
+
 class ResourceTable(models.Model):
    resource_name=models.ForeignKey(AddResource, on_delete=models.CASCADE)
    # resource_name = models.CharField(max_length=255,default="NA")
