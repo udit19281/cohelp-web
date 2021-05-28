@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Volunteer{% endblock title%}
+{% block title %}Collaborate{% endblock title%}
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/volunteer.css' %}" type="text/css" />
+    
 {%endblock style%}
 
 {% block content %}
@@ -26,8 +27,8 @@
 
     <div class="containerf col-auto mt-5 mb-10" style="background: #FFF url({% static 'temp/demos/nonprofit/images/slider/volunteer.png' %}) no-repeat 40% 100% / auto 70%">
           <div class="login">
-              <h1>Collaboration form form</h1>
-                <form method="POST" id="collaborate" action="{% url 'main:collaborate' %}" class="" style="display: inline-block;">
+              <h1>Collaboration form</h1>
+                <form method="POST" id="collaborate" action="{% url 'main:collaborate' %}" style="display: inline-block;">
                     {% csrf_token %}
                     <div class='col-auto mt-2' style="margin-left: 2px">
                         <label for="Name"><b>Name of Organization/Company</b></label><br>
@@ -41,18 +42,18 @@
 
                     <div class='col-auto mt-2' style="margin-left: 2px">
                         <label for="reason"><b>Why you want to collaborate</b></label><br>
-                        <input type="text" placeholder="mission and goals" name="reason" id="reason" required>
+                        <textarea type="input" cols=25 rows=5 placeholder="mission and goals" name="reason"></textarea>
                     </div><br>
 
                     
                     
                     <div class='col-auto mt-2' >
                         <label for="experience"><b>previous experience in the field</b></label>
-                           <input type="text" placeholder="Prior experience" name="experience" id="experience">
+                        <textarea type="input" cols=25 rows=5 placeholder="Prior experience" name="experience"></textarea>
                     </div><br>
 
                     <div class='col-auto mt-2' style="text-align: center;" >
-                        <button class="button button-rounded button-xlarge shadow not ls0 ml-0 mt-5" type="submit" value="Volunteer">SUBMIT</button>
+                        <button class="button button-rounded button-xlarge shadow nott ls0 ml-0 mt-5" type="submit">SUBMIT</button>
                     </div>
 
       </form>
