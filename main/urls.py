@@ -18,7 +18,8 @@ urlpatterns = [
     #  path('resource/',views.backToSchool,name="backToSchool"),
     path('resource/<int:id>/',views.resourcetable,name="resourcetable"),
     path('export/<int:id>',views.exportdata,name="export"),
-    path('backToSchool/',views.backToSchool,name="backToSchool")
+    path('backToSchool/',views.backToSchool,name="backToSchool"),
+    path('collaborate/',views.collaborate,name="collaborate")
 ]
     # path("login/",LoginView.as_view(),name="login")
     #path('resource/',views.backToSchool,name="backToSchool"),

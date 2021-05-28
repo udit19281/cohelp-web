@@ -3,7 +3,7 @@
 
 {% block title %}Volunteer{% endblock title%}
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/volunteer.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/volunteer.css' %}" type="text/css" />
 {%endblock style%}
 
 {% block content %}
@@ -27,7 +27,7 @@
     <div class="containerf col-auto mt-5 mb-10" style="background: #FFF url({% static 'temp/demos/nonprofit/images/slider/volunteer.png' %}) no-repeat 40% 100% / auto 70%">
           <div class="login">
               <h1>Collaboration form form</h1>
-                <form method="POST" id="collaborate" action="{% url 'main:collaborator' %}" class="" style="display: inline-block;">
+                <form method="POST" id="collaborate" action="{% url 'main:collaborate' %}" class="" style="display: inline-block;">
                     {% csrf_token %}
                     <div class='col-auto mt-2' style="margin-left: 2px">
                         <label for="Name"><b>Name of Organization/Company</b></label><br>

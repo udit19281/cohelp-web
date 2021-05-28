@@ -39,6 +39,9 @@ def founders(request):
 def backToSchool(request):
     return render(request,"backToSchool.html")
 
+def collaborate(request):
+    return render(request,"collaborate.html")
+
 
 @login_required(login_url="authentication:login")
 def volunteer(request):
