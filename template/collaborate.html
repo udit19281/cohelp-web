@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Volunteer{% endblock title%}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/volunteer.css' %}" type="text/css" />
+{%endblock style%}
+
+{% block content %}
+    
+<div class="section bg-transparent">
+    <div class="container clearfix">
+        <div class="row justify-content-center">
+            <div class="col-md-7 center">
+                <div class="heading-block border-bottom-0 mb-4">
+                    <h2 class="mb-4 nott">Willing to collaborate with Mango People?</h2>
+                </div>
+                <div class="svg-line bottommargin-sm clearfix">
+                    <img src="{% static 'temp/demos/nonprofit/images/divider-1.svg' %}" alt="svg divider" height="15">
+                </div>
+                <p>You are most Welcome to Collaborate with Mango People in every way you wish.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="containerf col-auto mt-5 mb-10" style="background: #FFF url({% static 'temp/demos/nonprofit/images/slider/volunteer.png' %}) no-repeat 40% 100% / auto 70%">
+          <div class="login">
+              <h1>Collaboration form form</h1>
+                <form method="POST" id="collaborate" action="{% url 'main:collaborator' %}" class="" style="display: inline-block;">
+                    {% csrf_token %}
+                    <div class='col-auto mt-2' style="margin-left: 2px">
+                        <label for="Name"><b>Name of Organization/Company</b></label><br>
+                        <input type="text" placeholder="Enter name" name="username" id="Name" required>
+                    </div><br>
+
+                    <div class='col-auto mt-2' style="margin-left: 2px">
+                        <label for="contact"><b>Contact Number</b></label><br>
+                        <input type="tel" placeholder="10-digit number" name="contact" id="contact" required pattern="[0-9]{10}" maxlength="10">
+                    </div><br>
+
+                    <div class='col-auto mt-2' style="margin-left: 2px">
+                        <label for="reason"><b>Why you want to collaborate</b></label><br>
+                        <input type="tel" placeholder="mission and goals" name="contact" id="contact" required pattern="[0-9]{10}" maxlength="10">
+                    </div><br>
+
+                    
+                    
+                    <div class='col-auto mt-2' >
+                        <label for="experience"><b>previous experience in the field</b></label>
+                           <input type="text" placeholder="Prior experience" name="experience" id="experience">
+                    </div><br>
+
+                    <div class='col-auto mt-2' style="text-align: center;" >
+                        <button class="button button-rounded button-xlarge shadow nott ls0 ml-0 mt-5" type="submit" value="Volunteer">SUBMIT</button>
+                    </div>
+
+      </form>
+    </div>
+    </div>
+</div>
+
+{% endblock content %}
