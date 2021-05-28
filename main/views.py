@@ -39,8 +39,22 @@ def founders(request):
 def backToSchool(request):
     return render(request,"backToSchool.html")
 
+# @login_required(login_url="authentication:login")
 def collaborate(request):
-    return render(request,"collaborate.html")
+    if request.method == 'POST':
+        username = request.POST['username']
+        number = request.POST['contact']
+        reason=request.POST['reason']
+        exp=request.POST['experience']
+        if number!='' and reason!='' and exp!='':
+            NewCollaboratorRequest.objects.create(username=username,number=number,reason=reason,experience=exp)
+            messages.success(request,"Collaborator form has been sent successfully!!! ")
+            return redirect("main:home")
+        else:
+            messages.error(request,"Error!!!, Enter all fields")
+            return redirect("main:home")
+    else:
+        return render(request,"collaborate.html")
 
 
 @login_required(login_url="authentication:login")
