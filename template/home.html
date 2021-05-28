@@ -2,6 +2,21 @@
 {% load static %}
 
 {% block title %}MangoPeopleNGO{% endblock title%}
+
+{% block style %}
+<style>
+	#sec-2 {
+		background: #FFF url('{% static 'temp/demos/nonprofit/images/others/11.png' %}') no-repeat 98% 90% / auto 52%;
+	}
+
+	@media screen and (max-width: 1300px) {
+		#sec-2 {
+			background: none;
+		}
+	}
+</style>
+
+{% endblock style %}
 <!-- #header end -->
 {% block content %}
 {% if messages %}
@@ -91,7 +106,7 @@
 
 				</div>
 
-				<div class="section mt-3" id="sec-2" style="background: #FFF url('{% static 'temp/demos/nonprofit/images/others/11.png' %}') no-repeat 98% 90% / auto 52%">
+				<div class="section mt-3" id="sec-2">
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-md-7 center">
@@ -138,7 +153,7 @@
 									</div>
 									<div class="fbox-content px-0">
 										<h3 class="nott ls0"><a href="" class="text-dark">Collaborate</a></h3>
-										<p style="color:rgb(0, 0, 0);">Want to Collaborate with Mango? Fill this form</p>
+										<p style="color:#999999;">Want to Collaborate with Mango? Fill this form</p>
 										<a href="{% url 'main:collaborate' %}" class="button button-rounded button-border nott ls0 font-weight-normal ml-0 mt-4">Get Help</a>
 									</div>
 								</div>
