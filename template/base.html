@@ -28,7 +28,7 @@
 	
 	<meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
 
-	<!-- Document Title
+	<!-- Document Titlef
 	============================================= -->
 	<title>{% block title %}{% endblock title%}</title>
 
@@ -58,7 +58,7 @@
 						<div class="header-misc">
 							<!-- <a href="{% url 'authentication:signup' %}" class="button button-rounded button-light"><div>Sign In</div></a> -->
                             {% if user.is_authenticated %}
-                            <form method="POST" action="{% url 'authentication:logout' %}" class="mr-2 mb-2">
+                            <form method="POST" action="{% url 'authentication:logout' %}" class="mt-2 mb-2">
                                 {% csrf_token %}
                                 <button type="submit" name="logout" class="button button-rounded button-light">Logout</button>
                             </form>
