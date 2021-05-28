@@ -39,10 +39,10 @@ def founders(request):
 def backToSchool(request):
     return render(request,"backToSchool.html")
 
-@login_required(login_url="authentication:login")
+# @login_required(login_url="authentication:login")
 def collaborate(request):
     if request.method == 'POST':
-        username = request.user.username
+        username = request.POST['username']
         number = request.POST['contact']
         reason=request.POST['reason']
         exp=request.POST['experience']
