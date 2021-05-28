@@ -82,8 +82,8 @@
 							<ul class="menu-container align-self-start">
 								<li class="menu-item"><span class="menu-bg col-auto align-self-start d-flex"></span></li>
 								<li class="menu-item current"><a class="menu-link" href="{% url 'main:home' %}"><div>Home</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="demo-nonprofit-about.html"><div>About</div></a></li>
-								<li class="menu-item"><a class="menu-link"><div>Causes</div></a>
+								<li class="menu-item"><a class="menu-link" href="{% url 'main:about' %}"><div>About</div></a></li>
+								<li class="menu-item"><a class="menu-link" style="cursor: pointer;"><div>Causes</div></a>
 									<ul class="sub-menu-container">
 <!-- 										<li class="menu-item"><a class="menu-link" href="demo-nonprofit-causes-single.html"><div>Ration Relief</div></a></li> -->
 										<li class="menu-item"><a class="menu-link" href="demo-nonprofit-causes-single.html"><div>Help Buddies</div></a></li>
@@ -91,7 +91,7 @@
 										<li class="menu-item"><a class="menu-link" href="demo-nonprofit-causes-single.html"><div>Project Slum</div></a></li>
 									</ul>
 								</li>
-								<li class="menu-item"><a class="menu-link"><div>Others</div></a>
+								<li class="menu-item"><a class="menu-link" style="cursor: pointer;"><div>Others</div></a>
 									<ul class="sub-menu-container">
 										<li class="menu-item"><a class="menu-link" href="{% url 'main:blog' %}"><div>Blogs</div></a></li>
 										<li class="menu-item"><a class="menu-link" href="{% url 'main:workshop' %}"><div>Workshops</div></a></li>
