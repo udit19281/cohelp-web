@@ -50,8 +50,8 @@
 						<!-- Logo
 						============================================= -->
 						<div id="logo" class="mr-lg-5">
-							<a href="{% url 'main:home' %}" class="standard-logo-1" data-dark-logo="demos/business/images/logo.png"><img src="{% static 'temp/images/logo.png' %}" alt="Mango Logo"></a>
-							<!-- <a href="{% url 'main:home' %}" class="retina-logo" data-dark-logo="demos/business/images/logo.png"><img src="{% static 'temp/demos/business/images/logo.png' %}" alt="Canvas Logo"></a> -->
+							<a href="{% url 'main:home' %}" class="standard-logo-1" ><img src="{% static 'assets/Mango_logo1.png' %}" alt="Mango Logo"></a>
+							<a href="{% url 'main:home' %}" class="retina-logo" data-dark-logo="demos/business/images/logo.png"><img src="{% static 'assets/Mango_LOGO_transparentBG.png' %}" alt="Canvas Logo"></a>
 						</div><!-- #logo end -->
 
 
@@ -66,7 +66,7 @@
                             {% else %}
                             <a href="{% url 'authentication:login' %}" class="button button-rounded button-light"><div>Login</div></a>
                             {% endif %}
-                            <button type="submit" name="logout" onclick="myFunction()" class="button button-rounded button-light" style=" background-color: red;" >Donate</button>
+                            <button type="submit" name="logout" onclick="myFunction()" class="button button-rounded button-light" style=" background-color: red; color: white;" >Donate</button>
 							<!-- <a onclick="myFunction()" class="btn btn-danger" style=" background-color: red;"><div>Donate</div></a> -->
 						</div>
 
@@ -81,7 +81,7 @@
 
 							<ul class="menu-container align-self-start">
 								<li class="menu-item"><span class="menu-bg col-auto align-self-start d-flex"></span></li>
-								<li class="menu-item"><a class="menu-link" href="{% url 'main:home' %}"><div>Home</div></a></li>
+								<li class="menu-item current"><a class="menu-link" href="{% url 'main:home' %}"><div>Home</div></a></li>
 								<li class="menu-item"><a class="menu-link" href="{% url 'main:about' %}"><div>About</div></a></li>
 								<li class="menu-item"><a class="menu-link" style="cursor: pointer;"><div>Causes</div></a>
 									<ul class="sub-menu-container">
