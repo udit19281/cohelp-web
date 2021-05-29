@@ -19,7 +19,8 @@ urlpatterns = [
     path('resource/<int:id>/',views.resourcetable,name="resourcetable"),
     path('export/<int:id>',views.exportdata,name="export"),
     path('backToSchool/',views.backToSchool,name="backToSchool"),
-    path('collaborate/',views.collaborate,name="collaborate")
+    path('collaborate/',views.collaborate,name="collaborate"),
+    path('helpBuddies/',views.helpBuddies,name="helpBuddies")
 ]
     # path("login/",LoginView.as_view(),name="login")
     #path('resource/',views.backToSchool,name="backToSchool"),

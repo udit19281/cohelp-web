@@ -39,6 +39,9 @@ def founders(request):
 def backToSchool(request):
     return render(request,"backToSchool.html")
 
+def helpBuddies(request):
+    return render(request,"help_buddies.html")
+
 # @login_required(login_url="authentication:login")
 def collaborate(request):
     if request.method == 'POST':
