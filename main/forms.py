@@ -1,13 +1,28 @@
 from django import forms
-from .models import PlasmaXchange, RequestedResource, VolunteerRequest
+from .models import PlasmaXchange, RequestedResource, VolunteerRequest, ResourceTable
 from django.forms.models import ModelForm
 from django.forms.widgets import Textarea
+
+Resource_CHOICES = [
+    ('plasma', 'Plasma'),
+    ('oxygen', 'Oxygen'),
+    ]
+
 
 class plasmaxchangeForm(ModelForm):
     class Meta:
         model = PlasmaXchange
         fields='__all__'
         exclude=('status',)
+
+
+class ResourceTableForm(ModelForm):
+    resource_name = forms.CharField(label='Resource Name', widget=forms.Select(Resource_CHOICES))
+    class Meta:
+        model = ResourceTable
+        fields = '__all__'
+        exclude = ('status', 'created_on', 'last_updated')
+
 
 class RequestedResourceForm(ModelForm):
 

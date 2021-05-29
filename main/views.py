@@ -99,6 +99,13 @@ def contact(request):
     else:
         return render(request,"contact.html",context={"form":form})
 
+
+def resource_table(context):
+    add_resource = ResourceTable()
+    if add_resource:
+        context['add resource'] = add_resource
+
+
 @login_required(login_url="authentication:login")
 def dashboard(request):
     user=request.user
@@ -111,23 +118,17 @@ def dashboard(request):
     else:
         request_res=RequestedResource.objects.filter(username=user)
         request_plasma=PlasmaXchange.objects.filter(username=user)
-        if request_plasma and request_plasma:
-            context={
-                'resource':request_res,
-                'plasma':request_plasma,
-            }
+        context = {}
+        resource_table(context)
+        if request_res and request_plasma:
+            context['resource'] = request_res
+            context['plasma'] = request_plasma
         elif request_plasma:
-            context={
-                'plasma':request_plasma,
-            }
+            context['plasma'] = request_plasma
         elif request_res:
-            context={
-                'resource':request_res,
-            }
+            context['resource'] = request_res,
         else:
-            context={
-                'text':'Requested forms will be shown here'
-            }
+            context['text'] = 'Requested forms will be shown here'
         print(context)
         return render(request,"dashboard.html",context=context)
 
