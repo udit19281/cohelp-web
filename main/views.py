@@ -42,6 +42,9 @@ def backToSchool(request):
 def helpBuddies(request):
     return render(request,"help_buddies.html")
 
+def projectSlum(request):
+    return render(request,"project_slum.html")
+
 # @login_required(login_url="authentication:login")
 def collaborate(request):
     if request.method == 'POST':

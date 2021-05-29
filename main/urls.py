@@ -20,7 +20,8 @@ urlpatterns = [
     path('export/<int:id>',views.exportdata,name="export"),
     path('backToSchool/',views.backToSchool,name="backToSchool"),
     path('collaborate/',views.collaborate,name="collaborate"),
-    path('helpBuddies/',views.helpBuddies,name="helpBuddies")
+    path('helpBuddies/',views.helpBuddies,name="helpBuddies"),
+    path('projectSlum/',views.projectSlum,name="projectSlum")
 ]
     # path("login/",LoginView.as_view(),name="login")
     #path('resource/',views.backToSchool,name="backToSchool"),
