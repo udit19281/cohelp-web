@@ -6,6 +6,10 @@
     <hr>
     <div style="text-align: center;">    
         <h1 style="font-family: sans-serif; color: maroon; font-weight: 750;">{{name}} Resources</h1>
+        <form method ="get" action="{% url 'main:form' 3%}">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Add Resources</button>
+          </form>
     </div>
     <hr>
     <br>    

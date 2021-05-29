@@ -45,15 +45,21 @@
 
   <tr>
   <td>
-  <form method="get" action="/form/resources/">
+  <form method="get" action="{% url 'main:form' 1%}">
     {% csrf_token %}
     <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Resource Request Form</button>
   </form>
   </td>
   <td>
-  <form method ="get" action="/form/plasmaxchange/">
+  <form method ="get" action="{% url 'main:form' 2%}">
     {% csrf_token %}
     <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Plasma X Change form</button>
+  </form>
+</td>
+<td>
+  <form method ="get" action="{% url 'main:form' 3%}">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit" style="margin: 0 1rem; min-width: 8rem;">Add Resources Form</button>
   </form>
 </td>
 </tr>

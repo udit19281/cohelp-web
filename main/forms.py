@@ -3,12 +3,6 @@ from .models import PlasmaXchange, RequestedResource, VolunteerRequest, Resource
 from django.forms.models import ModelForm
 from django.forms.widgets import Textarea
 
-Resource_CHOICES = [
-    ('plasma', 'Plasma'),
-    ('oxygen', 'Oxygen'),
-    ]
-
-
 class plasmaxchangeForm(ModelForm):
     class Meta:
         model = PlasmaXchange
@@ -17,7 +11,6 @@ class plasmaxchangeForm(ModelForm):
 
 
 class ResourceTableForm(ModelForm):
-    resource_name = forms.CharField(label='Resource Name', widget=forms.Select(Resource_CHOICES))
     class Meta:
         model = ResourceTable
         fields = '__all__'

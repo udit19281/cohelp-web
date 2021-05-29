@@ -106,10 +106,6 @@ def contact(request):
         return render(request,"contact.html",context={"form":form})
 
 
-def resource_table(context):
-    add_resource = ResourceTable()
-    if add_resource:
-        context['add resource'] = add_resource
 
 
 @login_required(login_url="authentication:login")
@@ -125,7 +121,6 @@ def dashboard(request):
         request_res=RequestedResource.objects.filter(username=user)
         request_plasma=PlasmaXchange.objects.filter(username=user)
         context = {}
-        resource_table(context)
         if request_res and request_plasma:
             context['resource'] = request_res
             context['plasma'] = request_plasma
@@ -135,26 +130,32 @@ def dashboard(request):
             context['resource'] = request_res,
         else:
             context['text'] = 'Requested forms will be shown here'
-        print(context)
         return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
 def form(request,name):
     if request.method =='GET':
-        if(name=="resources"):
+        if(name==1):
             form = RequestedResourceForm()
             context={
         'formname':'resources',
         'form':form }
             return render(request,"form.html",context)
-        elif (name=="plasmaxchange"):
+        elif (name==2):
             form = plasmaxchangeForm()
             context={
         'formname':'plasmaxchange',
         'form':form}
-        return render(request,"form.html",context)
+            return render(request,"form.html",context)
+        elif (name==3):
+            form = ResourceTableForm()
+            context={
+        'formname':'addresource',
+        'form':form}
+            return render(request,"form.html",context)
+
     if request.method == 'POST':
-        if(name=="resources"):
+        if(name==1):
            form=RequestedResourceForm(request.POST)
            if form.is_valid():
                 data=form.save(commit=False)
@@ -163,7 +164,7 @@ def form(request,name):
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
 
-        if(name=="plasmaxchange"):
+        elif(name==2):
            form=plasmaxchangeForm(request.POST)
            if form.is_valid():
                 data=form.save(commit=False)
@@ -171,6 +172,16 @@ def form(request,name):
                 form.save()
                 messages.success(request,"Form has been submitted successfully")
                 return redirect("main:dashboard")
+
+        elif(name==3):
+           form=ResourceTableForm(request.POST)
+           if form.is_valid():
+                # data=form.save(commit=False)
+                # data.username=request.user
+                form.save()
+                messages.success(request,"Form has been submitted successfully,Verification pending")
+                return redirect("main:dashboard")
+    print(name,type(name),name==1)
     messages.error(request,"Invalid form!")
     return redirect("main:dashboard")  
 
@@ -224,5 +235,9 @@ def exportdata(request,id):
         else:
             raise Http404()
         
-def backToScholl(request):
-    pass
+
+
+#id form name
+#1  reuest resource
+#2  plasma x change 
+#3 add resource form
