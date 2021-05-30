@@ -23,6 +23,4 @@ urlpatterns = [
     path('helpBuddies/',views.helpBuddies,name="helpBuddies"),
     path('projectSlum/',views.projectSlum,name="projectSlum")
 ]
-    # path("login/",LoginView.as_view(),name="login")
-    #path('resource/',views.backToSchool,name="backToSchool"),
     #path('communityKitchen/',views.communityKitchen,name="communityKitchen"),

@@ -154,7 +154,7 @@
 									<div class="fbox-content px-0">
 										<h3 class="nott ls0"><a href="" class="text-dark">Collaborate</a></h3>
 										<p style="color:#999999;">Want to Collaborate with Mango? Fill this form</p>
-										<a href="{% url 'main:collaborate' %}" class="button button-rounded button-border nott ls0 font-weight-normal ml-0 mt-4">Get Help</a>
+										<a href="{% url 'main:collaborate' %}" class="button button-rounded button-border nott ls0 font-weight-normal ml-0 mt-4">Apply Now</a>
 									</div>
 								</div>
 							</div>
@@ -369,8 +369,8 @@
 												<img src="{% static 'temp/demos/nonprofit/images/icons/home.svg' %}" alt="Featured Icon 1" width="50">
 											</div>
 											<div class="fbox-content">
-												<h3 class="nott ls0"><a href="#" class="text-dark">Covid Resources.</a></h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+												<h3 class="nott ls0"><a href="{% url 'main:showresource' %}" class="text-dark">Covid Resources.</a></h3>
+												<p>List of Verified Covid resources.</p>
 											</div>
 										</div>
 									</div>
@@ -380,8 +380,8 @@
 												<img src="{% static 'temp/demos/nonprofit/images/icons/health.svg' %}" alt="Featured Icon 2" width="50">
 											</div>
 											<div class="fbox-content">
-												<h3 class="nott ls0"><a href="#" class="text-dark">Back To School.</a></h3>
-												<p>Continually restore adaptive paradigms after "outside.</p>
+												<h3 class="nott ls0"><a href="{% url 'main:backToSchool' %}" class="text-dark">Back To School.</a></h3>
+												<p>Bringing Relief to Students Amidst Covid19 Pandemic.</p>
 											</div>
 										</div>
 									</div>
@@ -391,8 +391,8 @@
 												<img src="{% static 'temp/demos/nonprofit/images/icons/education.svg' %}" alt="Featured Icon 3" width="50">
 											</div>
 											<div class="fbox-content">
-												<h3 class="nott ls0"><a href="#" class="text-dark">Project Slum.</a></h3>
-												<p>Quickly benchmark client-centered vortals without cutting.</p>
+												<h3 class="nott ls0"><a href="{% url 'main:projectSlum' %}" class="text-dark">Project Slum.</a></h3>
+												<p>Sustainable Living Urbanization Movement.</p>
 											</div>
 										</div>
 									</div>
@@ -402,8 +402,8 @@
 												<img src="{% static 'temp/demos/nonprofit/images/icons/animal.svg' %}" alt="Featured Icon 4" width="50">
 											</div>
 											<div class="fbox-content">
-												<h3 class="nott ls0"><a href="#" class="text-dark">Help Buddies.</a></h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+												<h3 class="nott ls0"><a href="{% url 'main:helpBuddies' %}" class="text-dark">Help Buddies.</a></h3>
+												<p>A community of people, who support your cause.</p>
 											</div>
 										</div>
 									</div>
@@ -661,7 +661,7 @@
 									<li class="grid-item"><a href="#"><img src="{% static 'temp/images/clients/10.png' %}" alt="Clients"></a></li>
 								</ul>
 							</div>
-							<h5 class="font-weight-normal text-black-50 mb-0">If you want to work with for nonprofit? <a href="demo-nonprofit-contact.html"><u>Send your Details</u></a>.</h5>
+							<!-- <h5 class="font-weight-normal text-black-50 mb-0">If you want to work with for nonprofit? <a href="demo-nonprofit-contact.html"><u>Send your Details</u></a>.</h5> -->
 						</div>
 					</div>
 				</div>
