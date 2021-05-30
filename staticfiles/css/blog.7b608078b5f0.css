@@ -1,0 +1,50 @@
+#heading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.blog-heading{
+    color: black;
+    font-size: 3rem;
+    margin-top: 5px;
+    font-weight: 600;
+
+}
+
+#list-div{
+    text-align: center;
+    margin: 10vh 15vw;
+
+}
+
+.blog-list {
+    list-style: none;
+    align: center;
+}
+
+.blog-list li {
+    margin-bottom: 20px;
+}
+.ele-div {
+    display: inline-block;
+}
+
+.list-image {
+    height: auto;
+    width: 40%;
+}
+
+.list-text {
+    max-width: 50%;
+}
+
+.list-text p, h3 {
+    text-align: left;
+    margin-left: 8px
+}
+
+.list-text h3:hover {
+    color:grey;
+}
