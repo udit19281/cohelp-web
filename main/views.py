@@ -125,11 +125,12 @@ def dashboard(request):
             context['resource'] = request_res
             context['plasma'] = request_plasma
         elif request_plasma:
-            context['plasma'] = request_plasma
+            context={'plasma' : request_plasma}
         elif request_res:
-            context['resource'] = request_res,
+            context['resource'] = request_res
         else:
             context['text'] = 'Requested forms will be shown here'
+        print(context)
         return render(request,"dashboard.html",context=context)
 
 @login_required(login_url="authentication:login")
@@ -138,18 +139,21 @@ def form(request,name):
         if(name==1):
             form = RequestedResourceForm()
             context={
+                'formid':1,
         'formname':'resources',
         'form':form }
             return render(request,"form.html",context)
         elif (name==2):
             form = plasmaxchangeForm()
             context={
+                'formid':2,
         'formname':'plasmaxchange',
         'form':form}
             return render(request,"form.html",context)
         elif (name==3):
             form = ResourceTableForm()
             context={
+                'formid':3,
         'formname':'addresource',
         'form':form}
             return render(request,"form.html",context)

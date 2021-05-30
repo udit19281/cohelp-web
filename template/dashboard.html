@@ -71,7 +71,7 @@
 <h1>{{text}}</h1>
 {% endif %}
 
-{%if resource%}
+{% if resource %}
 <!-- Requested Resource details -->
 <div class="container">
   <h2 style="color: maroon">Requested Resource Form Status</h2>
@@ -85,14 +85,14 @@
     </tr>
   </thead>
   <tbody>
-    {%for i in resource %}
+    {% for i in resource %}
     <tr>
       <th scope="row">{{forloop.counter}}</th>
       <td>{{i.resource}}</td>
       <td>{{i.status}}</td>
       <td>{{i.description}}</td>
     </tr>
-    {%endfor%}
+    {% endfor %}
   </tbody>
 </table>
 </div>
