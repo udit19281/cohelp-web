@@ -316,7 +316,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
   top: 0;
   left: 0;
   z-index: 5;
-  background: transparent url("images/grid.png") repeat;
+
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 }
