@@ -2,6 +2,7 @@ from django.contrib import messages
 from decouple import config
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cohelp.urls'
@@ -163,6 +165,7 @@ AUTHENTICATION_BACKENDS = [
 MESSAGE_TAGS={
     messages.ERROR:"danger"
 }
+
 #email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST=config('EMAIL_HOST')
@@ -171,3 +174,12 @@ EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS=False
 EMAIL_USE_SSL=True
+
+django_heroku.settings(locals())
+
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
+    SECURE_SSL_REDIRECT=True
+    CSRF_COOKIE_SECURE=True
+    SECURE_HSTS_PRELOAD=True
+    ALLOWED_HOSTS=["*"]
