@@ -142,7 +142,7 @@ width: 100%;
 height: 100%;
 /* background-color: #1cb0d1; */
 /* background: url("https://lh6.googleusercontent.com/proxy/2ogr7LoVqClhNdaedspLeIUo46kg1g0KD_whPttwYfSB6Y2TkCqD7Zfnp90tQ3MzRJMOxPCCrJC7x2xPexpYhLQu95r4PGbHe2Zt=s0-d"); */
-background-image: url(../assets/Login_BG.jpg);
+background-image: url('https://user-images.githubusercontent.com/55681509/120118000-d57a5800-c1ad-11eb-9a7f-b9ebff082729.jpg');
 z-index: -1;
 display: flex;
 background-attachment: fixed;
@@ -276,7 +276,7 @@ to {
 }
 .bg-box .bg2 {
   /* background-image: url(https://i.pinimg.com/564x/05/b7/e1/05b7e1f153819d3424df491219cd3928.jpg);  */
-  background-image: url(../assets/sidebox.jpg);
+  background-image: url('https://user-images.githubusercontent.com/55681509/120118032-03f83300-c1ae-11eb-8406-8a13e038b137.jpg');
   /* background-size: cover; */
   background-position: right center;
   background-size: 70% auto;
