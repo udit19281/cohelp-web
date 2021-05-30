@@ -181,7 +181,7 @@
 }
 
 .button-svg {
-	background-image: url('images/border.svg');
+	background-image: url('https://sendeyo.com/en/5096f4af55');
 	background-repeat: no-repeat;
 	background-position: center 120%;
 	background-size: 100% 10px;
@@ -319,7 +319,7 @@
 	width: 10px;
 	height: 100%;
 	opacity: .4;
-	background-image: url('images/divider-2.svg');
+	background-image: url('https://sendeyo.com/en/0611e5b892');
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -488,7 +488,7 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 	padding: 8px 4px;
 	font-size: 19px;
 	background-color: transparent !important;
-	background-image: url('images/divider-3.svg');
+	background-image: url('https://sendeyo.com/en/4f03c7bf0e');
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	border: 0;
@@ -538,7 +538,7 @@ body:not(.nonprofit-processing) .nonprofit-loader { display: none; }
 	color: #666 !important;
 }
 
-.fc-body { background: url('images/world-map.png') no-repeat center center/ contain; }
+.fc-body { background: url('https://user-images.githubusercontent.com/55681509/120116948-66e6cb80-c1a8-11eb-8954-a6a299077db7.png') no-repeat center center/ contain; }
 
 /* Section Details
 -----------------------------------------------------------------*/
@@ -699,7 +699,7 @@ body:not(.floating-contact-processing) .floating-contact-loader { display: none;
 		opacity: 0;
 		content: '';
 		position: absolute;
-		background-image: url('images/border.svg');
+		background-image: url('https://sendeyo.com/en/5096f4af55');
 		background-repeat: no-repeat;
 		background-position: center center;
 		top: 50%;
@@ -810,7 +810,7 @@ body:not(.floating-contact-processing) .floating-contact-loader { display: none;
 	position: absolute;
 	bottom: -11px;
 	left: 0;
-	background-image: url('images/divider-5.svg');
+	background-image: url('https://sendeyo.com/en/2e3f18b421');
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: 100% 20px;
