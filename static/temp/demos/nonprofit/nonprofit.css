@@ -818,7 +818,9 @@ body:not(.floating-contact-processing) .floating-contact-loader { display: none;
 	height: 20px;
 }
 
-
+h2{
+	20px;
+}
 .floating-donate-wrap {
 	position: fixed; 
 	right: 3vw; 
