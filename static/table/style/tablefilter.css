@@ -722,12 +722,11 @@ div.tot span {
 
 .descending {
     display: inline;
-    background-image: url("theme/downsimple.png")
 }
 
 .ascending {
     display: inline;
-    background-image: url("theme/upsimple.png")
+
 }
 
 div.status {
