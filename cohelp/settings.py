@@ -183,3 +183,4 @@ if not DEBUG:
     CSRF_COOKIE_SECURE=True
     SECURE_HSTS_PRELOAD=True
     ALLOWED_HOSTS=["*"]
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
