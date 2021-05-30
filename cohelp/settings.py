@@ -176,11 +176,10 @@ EMAIL_USE_TLS=False
 EMAIL_USE_SSL=True
 
 django_heroku.settings(locals())
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
     SECURE_SSL_REDIRECT=True
     CSRF_COOKIE_SECURE=True
     SECURE_HSTS_PRELOAD=True
     ALLOWED_HOSTS=["*"]
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
