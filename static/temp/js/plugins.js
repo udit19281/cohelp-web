@@ -3765,7 +3765,7 @@ window.SEMICOLON_twitterFeedInit = function( $twitterFeedEl ){
 		let element		= $(this),
 			elUser		= element.attr('data-username') || 'twitter',
 			elCount		= element.attr('data-count') || 3,
-			elLoader	= element.attr('data-loader') || 'include/twitter/tweets.php';
+			elLoader	= element.attr('data-loader') || '';
 
 		$.getJSON( elLoader + '?username='+ elUser +'&count='+ Number( elCount ), function(tweets){
 			if( element.hasClass('fslider') ) {
