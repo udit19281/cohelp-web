@@ -39,15 +39,12 @@ def signup(request):
                 user.is_active=False
                 profile=Profile.objects.create(user=user)
                 profile.number=phonenumber
-                profile.save()
-                user.save()
                 #send verification mail
                 current_site=get_current_site(request)
                 uid=urlsafe_base64_encode(force_bytes(user.pk))
                 token=account_activation_token.make_token(user)
                 link=reverse('authentication:activate',kwargs={'uid':uid, 'token':token})
                 acti_url="http://"+current_site.domain+link
-                print(current_site.domain)
                 subject="Activate your account"
                 body="Hello "+user.username+", Here is your activation link \n"+acti_url
                 send_mail(
@@ -70,6 +67,7 @@ def signup(request):
                 #     print(message.sid)
                 # except Exception as e:
                 #     print(e)
+                profile.save()
                 user.save()
                 messages.success(request,"Account Created Successfully, Please check your email for verification.")
                 return render(request,'auth/signup.html')
