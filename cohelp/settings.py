@@ -179,5 +179,4 @@ django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if not DEBUG:
-    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
     ALLOWED_HOSTS=["*"]
