@@ -1,5 +1,5 @@
 # cohelp-web
-Covid Resouce Website for MANGO
+Covid Resouce Website for MANGO.
 
 # Requirements
 - python>3
