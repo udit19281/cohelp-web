@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY =  config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['']
 
@@ -172,12 +172,16 @@ EMAIL_HOST=config('EMAIL_HOST')
 EMAIL_PORT=config('EMAIL_PORT')
 EMAIL_HOST_USER=config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS=False
-EMAIL_USE_SSL=True
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL=False
 
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if not DEBUG:
-    ALLOWED_HOSTS=["*"]
+    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
+    SECURE_SSL_REDIRECT=True
+    CSRF_COOKIE_SECURE=True
+    SECURE_HSTS_PRELOAD=True
+    ALLOWED_HOSTS=[".herokuapp.com"]
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
