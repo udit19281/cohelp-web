@@ -1,5 +1,5 @@
 # Cohelp-web
-Covid Resouce Website for मैंNGO
+Covid Resource Website for मैंNGO
 
 Link: https://mangopeople.herokuapp.com/
 
