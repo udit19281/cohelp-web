@@ -15,9 +15,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY =  config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -177,6 +174,10 @@ EMAIL_USE_SSL=False
 
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEBUG=config('DEBUG')
+ALLOWED_HOSTS=['']
+if DEBUG:
+    ALLOWED_HOSTS=['*']
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
