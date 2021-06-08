@@ -174,7 +174,7 @@ EMAIL_USE_SSL=False
 
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEBUG=config('DEBUG')
+DEBUG = (config('DEBUG') == 'True')
 ALLOWED_HOSTS=['']
 if DEBUG:
     ALLOWED_HOSTS=['*']
