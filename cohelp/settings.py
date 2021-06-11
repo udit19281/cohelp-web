@@ -184,5 +184,5 @@ if not DEBUG:
     SECURE_SSL_REDIRECT=True
     CSRF_COOKIE_SECURE=True
     SECURE_HSTS_PRELOAD=True
-    ALLOWED_HOSTS=[".herokuapp.com","mangopeople.org.in"]
+    ALLOWED_HOSTS=[".herokuapp.com",".mangopeople.org.in"]
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
