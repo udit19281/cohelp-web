@@ -180,9 +180,9 @@ if DEBUG:
     ALLOWED_HOSTS=['*']
 
 if not DEBUG:
-    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
-    SECURE_SSL_REDIRECT=True
+    # SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO',"https")
+    # SECURE_SSL_REDIRECT=True
     CSRF_COOKIE_SECURE=True
-    SECURE_HSTS_PRELOAD=True
+    # SECURE_HSTS_PRELOAD=True
     ALLOWED_HOSTS=["*"]
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
