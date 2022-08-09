@@ -1,7 +1,7 @@
 # Cohelp-web
 Covid Resource Website for मैंNGO
 
-Link: https://www.mangopeople.org.in
+Link: https://mangopeople.herokuapp.com/
 
 # Requirements
 - python>3
